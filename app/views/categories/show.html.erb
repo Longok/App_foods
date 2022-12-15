@@ -1,0 +1,7 @@
+<% provide :title, "Chi tiết danh mục sản phẩm"%>
+
+<%= @categories.name %><br>
+
+<%= link_to "Sửa", edit_category_path, class:"btn btn-primary mt-4" %>
+
+<%= link_to "Xóa", category_path, data: { turbo_method: :delete}, class:"btn btn-danger mt-4" %>

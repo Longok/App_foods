@@ -1,0 +1,18 @@
+<% provide :title, "Đăng nhập"%>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+    <h1 class="text-center">Đăng nhập</h1>
+        <%= form_for :session, url: login_path, local: true do |f| %>
+
+        <%= f.email_field :email, class: "form-control mt-3", placeholder: "Email" %>
+
+        <%= f.password_field :password, class: "form-control mt-3", placeholder: "Mật khẩu" %>
+
+        <%= f.submit "Đăng nhập", class:"btn btn-primary mt-3" %>
+
+        <% end %>
+
+        <p>Chưa có tài khoản?<%= link_to "Đăng ký ngay", sign_up_path, class:"p-2 text-decoration-none" %></p>
+    </div>
+</div>

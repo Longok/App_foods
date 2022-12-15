@@ -1,0 +1,15 @@
+<% provide :title, "Tạo danh mục" %>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="text-center mt-3">Tạo danh mục sản phẩm</h2>
+        <%= form_for @categories do |f| %>
+
+            <%= render "shared/error_messages", object: @categories%>
+
+            <%= f.text_field :name, placeholder:"Tên danh mục", class:"form-control mt-3" %>
+
+            <%= f.submit "Tạo danh mục",  class:"btn btn-primary mt-3"%>
+        <% end %>
+    </div>
+</div>
