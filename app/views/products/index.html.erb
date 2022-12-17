@@ -1,0 +1,11 @@
+<% provide :title, "Trang sản phẩm" %>
+
+<% @products.each do |product| %>
+    <p><%= product.name %></p>
+    <p>Giá: <%= product.price %> đ</p>
+    <p>Mô tả: <%= product.describe %></p>
+    <p><%= link_to ( image_tag product.image if product.image.attached?), product %></p>
+    <hr>
+<% end %>
+
+<%= link_to "Thêm sản phẩm", new_product_path, class:"btn btn-primary" %>

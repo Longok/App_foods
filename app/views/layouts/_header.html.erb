@@ -3,7 +3,7 @@
     <%= link_to "Trang chủ", root_path, class:"navbar-brand"%>
     <div class="d-flex justify-content-end bg-dark">
         <%= link_to "Danh mục", categories_path, class:"p-2 text-decoration-none text-light" %>
-        <a class="p-2 text-decoration-none text-light">Sản phẩm</a>
+        <%= link_to "Sản phẩm", products_path, class:"p-2 text-decoration-none text-light" %>
         <a class="p-2 text-decoration-none text-light">Giỏ hàng</a>
         <% if logged_in? %>
           <a class="p-2 text-decoration-none text-light">Xin chào: <%= current_user.name %></a>
