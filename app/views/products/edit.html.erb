@@ -1,0 +1,21 @@
+<% provide :title, "Cập nhật sản phẩm" %>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="text-center mt-3">Cập nhật sản phẩm</h2>
+       
+        <%= form_for @products do |f| %>
+            <%= render "shared/error_messages", object: @products %>
+
+            <%= f.text_field :name, placeholder:"Tên sản phẩm", class:"form-control mt-3" %>
+            <%= f.text_field :describe, placeholder:"Mô tả ngắn", class:"form-control mt-3" %>
+            <%= f.text_field :price, placeholder:"Giá sản phẩm", class:"form-control mt-3" %>
+            <%= f.file_field :image, class:"form-control mt-3" %>
+            <%= f.label :category_id, "Chọn danh mục", class:"mt-3" %>
+            <br>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, class:"form-control mt-3") %>
+            <br>
+            <%= f.submit "Cập nhật sản phẩm",  class:"btn btn-primary mt-3" %>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+.container {
+
+    .products {
+      
+        .cart_item {
+            cursor: pointer;
+            position: relative;
+
+            .image {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffffff1A;
+                border-top-left-radius: 2rem;
+                border-top-right-radius: 2rem;
+
+                img {
+                    height: 10rem;
+                    transition: 0.5s;               
+                }
+  
+            }
+            &:hover .image {
+                transform: translate(0, -2rem);
+            }
+
+            .cart {
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: .5rem;
+                
+                .action {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    form { 
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 1rem;
+                        
+                        .quantity {
+                            min-width: 4rem;
+                            margin-left: 1rem;
+                            border: none;
+                            outline: none;
+                            border-radius: .2rem;
+                        }
+
+                        input {
+                            background-color: #841cc0;
+                            margin: 0 .2rem;
+                            padding: 0 .2rem;
+                            color: #fff;
+                            min-width: 5rem;
+                        }
+                    }
+
+                    a {
+                        display: block;
+                        color: #fff;
+                        background-color: blueviolet;
+                        margin: 0;
+                        padding: 0 .2rem;
+                    }
+                }
+            }
+            .content {
+                padding: 2rem;
+                background-color: #ffffff1A;
+                backdrop-filter: blur(2rem);
+                flex: 1;
+                border-bottom-left-radius: 2rem;
+                border-bottom-right-radius: 2rem;
+                color: #fff;
+            }
+            &:hover .content {
+                transform: translate(0, 2rem);
+            }
+            &:hover .cart {
+                display: block;
+            }
+            &:hover img{
+                transform: rotate(22deg);
+            }
+        }
+
+        
+    }
+}

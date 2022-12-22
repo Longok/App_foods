@@ -7,17 +7,19 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "products", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "carts", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
 <body>
   <%= render "layouts/header" %>
-  <div class="container">
+    <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="fs-4 alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
 
     <%= yield %>
-  </div>
+    </div>
 </body>
 </html>

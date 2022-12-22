@@ -4,7 +4,12 @@
     <div class="d-flex justify-content-end bg-dark">
         <%= link_to "Danh mục", categories_path, class:"p-2 text-decoration-none text-light" %>
         <%= link_to "Sản phẩm", products_path, class:"p-2 text-decoration-none text-light" %>
-        <a class="p-2 text-decoration-none text-light">Giỏ hàng</a>
+        <%= link_to "Giỏ hàng", cart_path, class:"p-2 text-decoration-none text-light" %>
+          <% if @cart.total_quantity > 0%>
+              <div style="color:white;text-align:center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background-color: red">
+                <%= @cart.total_quantity %>
+              </div>
+          <% end %>  
         <% if logged_in? %>
           <a class="p-2 text-decoration-none text-light">Xin chào: <%= current_user.name %></a>
           <%= link_to "Thoát", logout_path,  data: { turbo_method: :delete}, class:"p-2 text-decoration-none text-light" %>

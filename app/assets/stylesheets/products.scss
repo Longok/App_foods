@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .2s linear;
+    
+}
+
+body {
+    background-image: linear-gradient(to top right, #CC64a2, #5c3075);
+    min-height: 100vh;
+}
+
+.container {
+    margin-top: 5rem;
+    .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        
+        .item{
+            cursor: pointer;
+            position: relative;
+
+            .image {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffffff1A;
+                border-top-left-radius: 2rem;
+                border-top-right-radius: 2rem;
+
+                img {
+                    height: 16rem;
+                    transition: 0.5s;               
+                }
+  
+            }
+            &:hover .image {
+                transform: translate(0, -2rem);
+            }
+
+            .cart {
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: 66%;
+                transform: translate(-50%, -50%);
+                background-color: #ae7eca !important;
+                border-radius: .5rem;
+                
+                .btn {
+                    color: #fff;
+                }
+            }
+            .content {
+                padding: 2rem;
+                background-color: #ffffff1A;
+                backdrop-filter: blur(2rem);
+                flex: 1;
+                border-bottom-left-radius: 2rem;
+                border-bottom-right-radius: 2rem;
+                color: #fff;
+            }
+            &:hover .content {
+                transform: translate(0, 2rem);
+            }
+            &:hover .cart {
+                display: block;
+            }
+            &:hover img{
+                transform: rotate(22deg);
+            }
+        }
+
+        
+    }
+}
+    
