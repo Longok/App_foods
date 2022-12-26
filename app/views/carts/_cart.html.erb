@@ -1,18 +1,18 @@
 <% provide :title, "Giỏ hàng của bạn"%>
 
+<% if @cart.total > 0 %>
     <h1 class="mb-5">Giỏ hàng của bạn:</h1>
-        <% if @cart.total > 0 %>
-            <div class="cart-checkout">
-                <p class="h2">Tổng cộng: <%= number_to_currency(@cart.total, precision: 0) %>/ </p>
-                <% if logged_in? %>
-                    <%= link_to "Thanh Toán", new_cart_checkout_path(@cart) %>
-                <% else %>
-                    <%= link_to "Thanh Toán", login_path %>
-                <% end %>
-            </div>      
-        <% end %>    
-        <% if @cart.cart_items.count > 0 %>
-            <%= render "cart_items/cart_item" %>
+    <div class="cart-checkout">
+        <p class="h2">Tổng cộng: <%= number_to_currency(@cart.total, precision: 0) %>/ </p>
+        <% if logged_in? %>
+            <%= link_to "Thanh Toán", new_cart_checkout_path(@cart) %>
         <% else %>
-            <p>Giỏ hàng trống, <%= link_to "Mua Ngay", products_path, class:"text-decoration-none" %></p>
+            <%= link_to "Thanh Toán", login_path %>
         <% end %>
+    </div>      
+<% end %>    
+<% if @cart.cart_items.count > 0 %>
+    <%= render "cart_items/cart_item" %>
+<% else %>
+    <p class="h2">Giỏ hàng trống, <%= link_to "Mua Ngay", products_path, class:"text-decoration-none" %></p>
+<% end %>

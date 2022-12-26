@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
     end
 
     def show
-        @categories = Category.find_by id: params[:id]
+        @categories = Category.find params[:id]
     end
 
     def edit

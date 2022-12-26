@@ -15,46 +15,32 @@
 
     .products {
       
-        .cart_item {
-            cursor: pointer;
-            position: relative;
-            box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
-            
+        .item {
+               
             .image {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background-color: #ffffff1A;
-                border-top-left-radius: 2rem;
-                border-top-right-radius: 2rem;
 
-                img {
-                    height: 15rem;
-                    transition: 0.5s;               
+                .cart-image {
+
+                    img {
+                        height: 15rem;
+                        transition: 0.5s;
+                    }               
                 }
   
             }
-            &:hover .image {
-                transform: translate(0, -2rem);
-                border-bottom: .1rem solid rgba(0, 0, 0, .1);
-                box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
-            }
-
-            .cart {
+           
+            .box  {
                 display: none;
-                position: absolute;
-                left: 50%;
-                top: calc(50% + 1rem);
-                transform: translate(-50%, -50%);
-                border-radius: .5rem;
-                margin-top: auto;
-                
-                .action {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                position: relative;
 
+                .action-content {
+                    display: flex;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    border-radius: .5rem;
+                    
                     form { 
                         display: grid;
                         grid-template-columns: 1fr 1fr;
@@ -65,69 +51,33 @@
                             margin-left: 1rem;
                             border: none;
                             outline: none;
-                            border-radius: .2rem;
+                            border-radius: .4rem;
                         }
 
                         input {
-                            background-color: #841cc0;
+                            background-color: #ae7eca;
                             margin: 0 .2rem;
                             padding: 0 .2rem;
                             color: #fff;
-                            min-width: 5rem;
-                            font-size: 1.2rem;
+                            font-size: 1.6rem;
                         }
                     }
 
                     a {
                         display: block;
+                        align-items: center;
                         color: #fff;
-                        background-color: blueviolet;
+                        background-color: #ae7eca;
                         margin: 0;
                         padding: 0 .2rem;
-                        font-size: 1.2rem;
-                        border-radius: .2rem;
-                    }
-                }
-            }
-            .content {
-                padding: 2rem;
-                background-color: #ffffff1A;
-                backdrop-filter: blur(2rem);
-                flex: 1;
-                border-bottom-left-radius: 2rem;
-                border-bottom-right-radius: 2rem;
-                color: #fff;
-                
-                .title {
-                    a {
                         font-size: 1.6rem;
-                        color: #841cc0;
+                        border-radius: .4rem;
                     }
-
-                    p {
-                        font-size: 1.4rem;
-                        color: #841cc0;
-                    }
-
                 }
+                                
+            }
 
-            }
-            &:hover .content {
-                transform: translate(0, 2rem);
-                box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
-                border-top: .1rem solid rgba(0, 0, 0, .1);
-            }
-            &:hover .cart {
-                display: block;
-            }
-            &:hover img{
-                transform: rotate(22deg);
-            }
-            &:hover {
-                box-shadow: none;
-            }
         }
-
-        
+       
     }
 }

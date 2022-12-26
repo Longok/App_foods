@@ -19,6 +19,38 @@
     </div>
 
     <div class="col offset-md-12">
-        <h2>Giỏ hàng:</h2>
+        <p class="h2">Giỏ hàng/ Tổng cộng: <%= number_to_currency(@cart.total, precision: 0) %></p>
+        <div class="checkouts">
+            <% @cart.cart_items.each do | cart_item| %>
+                
+                <% product = cart_item.product %>
+
+                <div class="cart_item">
+                    <div class="image">
+                        <%= link_to ( image_tag product.image if product.image.attached?), product %>
+                    </div>
+                    
+                    <div class="cart">
+                        <div class="action">
+                            <%= form_with url: cart_item_update_path(cart_item) do |f| %>
+                                <%= f.hidden_field :id, value: product.id %>
+                                <%= f.number_field :quantity, class:"quantity", value: cart_item.quantity, min: 0 %>
+                                <%= f.submit "Cập nhật", class:"btn" %>
+                            <% end %>
+
+                            <%= link_to "Xóa", cart_item_delete_path(cart_item), class:"btn", data: { turbo_method: :delete} %>
+                        </div>
+                    </div>
+                        
+                    <div class="content">
+                        <div class="title">
+                            <%= link_to product.name, product_path(product) %>
+                            <p class="text">Đơn giá: <%= number_to_currency(product.price, precision: 0)%></p>
+                            <p>Thành tiền: <%= number_to_currency(cart_item.total_price, precision: 0) %></p>
+                        </div>             
+                    </div>          
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>

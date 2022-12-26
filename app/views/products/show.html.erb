@@ -1,0 +1,78 @@
+<% provide :title, @product.name %>
+
+    <div class="show">
+        
+        <div class="image">
+            <%= image_tag @product.image if @product.image.attached? %>
+            <div class="description">
+                <%= @product.describe %>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="title">
+                <%= link_to @product.name, product_path(@product) %>
+            </div>
+
+            <div class="review">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="saled">
+                    <p>Đã bán <span>148 sản phẩm</span></p>
+                </div>
+            </div>      
+
+            <div class="brand">
+                <h3>Brand</h3>
+                <p><%= @product.category.name %></p>
+            </div>
+
+            <p class="price">Giá:<span><%= number_to_currency(@product.price, precision: 0)%></span></p>
+            
+            <div class="add-cart">             
+                <%= form_with(url: cart_items_path(@product)) do |f| %>
+                    <%= f.hidden_field :id, value: @product.id %>
+                    <%= f.hidden_field :quantity, value: 1, min: 1 %>
+                    <%= f.submit "Thêm giỏ hàng", class:"btn" %>
+                <% end %>           
+            </div>      
+        </div>
+        
+        <div class="infomation">
+            <div class="ship">
+                <i class="fa-sharp fa-solid fa-truck-fast"></i>
+                <div class="content">
+                    <h3>MIỄN PHÍ GIAO HÀNG</h3>
+                    <p>Đơn hàng 300.000 đ trở lên</p>
+                </div>   
+            </div>
+            <div class="quality">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <div class="content">
+                   <h3>ĐẢM BẢO CHẤT LƯỢNG</h3>
+                <p>Sản phẩm đã được kiểm định</p>
+                </div>      
+            </div>
+            <div class="support">
+                <i class="fa-solid fa-phone"></i>
+                <div class="content">
+                    <h3>HỖ TRỢ</h3>
+                    <p>Hotline: 1900 636 979</p>
+                </div>
+            </div>
+            <div class="benefit">
+                <i class="fa-regular fa-circle-check"></i>
+                <div class="content">
+                    <h3>ĐẦY ĐỦ QUYỀN LỢI</h3>
+                    <p>Áp dụng Chương trình Khách Hàng thân thiết như mua ở Cửa hàng</p>          
+                </div>
+            </div>
+        </div>
+
+    </div>     
+   

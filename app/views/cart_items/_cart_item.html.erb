@@ -3,27 +3,29 @@
         
         <% product = cart_item.product %>
 
-        <div class="cart_item">
+        <div class="item">
             <div class="image">
-                <%= link_to ( image_tag product.image if product.image.attached?), product %>
+                <%= link_to ( image_tag product.image if product.image.attached?), product, class:"cart-image" %>
             </div>
             
-            <div class="cart">
-                <div class="action">
-                    <%= form_with url: cart_item_update_path(cart_item) do |f| %>
+            <div class="box">
+                <div class="action-content">
+                
+                    <%= form_with url: cart_item_update_path(cart_item), class:"update-cart" do |f| %>
                         <%= f.hidden_field :id, value: product.id %>
                         <%= f.number_field :quantity, class:"quantity", value: cart_item.quantity, min: 0 %>
                         <%= f.submit "Cập nhật", class:"btn" %>
                     <% end %>
 
                     <%= link_to "Xóa", cart_item_delete_path(cart_item), class:"btn", data: { turbo_method: :delete} %>
+                    
                 </div>
             </div>
                 
             <div class="content">
                 <div class="title">
                     <%= link_to product.name, product_path(product) %>
-                    <p class="text">Đơn giá: <%= number_to_currency(product.price, precision: 0)%> /1 Thùng</p>
+                    <p class="text">Đơn giá: <%= number_to_currency(product.price, precision: 0)%> /48 Hộp</p>
                     <p>Thành tiền: <%= number_to_currency(cart_item.total_price, precision: 0) %></p>
                 </div>             
             </div>

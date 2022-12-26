@@ -1,0 +1,147 @@
+.container {
+
+    .cart-checkout {
+        display: flex;
+
+        a {
+            margin-left: .5rem;
+            padding: .1rem;
+            font-size: 1.6rem;
+            background-color: #841cc0;
+            color: #fff;
+            border-radius: .5rem;
+        }
+    }
+
+    form {
+        font-size: 2rem;
+
+        .btn {
+            font-size: 1.5rem;
+        }
+    }
+
+    .checkouts {
+      
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+
+        .cart_item {
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+            
+            .image {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffffff1A;
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+
+                img {
+                    height: 10rem;
+                    transition: 0.5s;               
+                }
+  
+            }
+            
+            &:hover .image {
+                transform: translate(0, -1.5rem);
+                border-bottom: .1rem solid rgba(0, 0, 0, .1);
+                box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+            }
+
+            .cart {
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: calc(50% + 1rem);
+                transform: translate(-50%, -50%);
+                border-radius: .5rem;
+                margin-top: auto;
+                
+                .action {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    form { 
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: .5rem;
+                        
+                        .quantity {
+                            min-width: 4rem;
+                            border: none;
+                            outline: none;
+                            border-radius: .2rem;
+                        }
+
+                        input {
+                            background-color: #841cc0;
+                            padding: 0 .2rem;
+                            color: #fff;
+                            min-width: 7rem;
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                    a {
+                        display: block;
+                        color: #fff;
+                        background-color: blueviolet;
+                        margin: 0;
+                        padding: 0 .2rem;
+                        font-size: 1.2rem;
+                        border-radius: .2rem;
+                    }
+                }
+            }
+            .content {
+                padding: 0 .4rem;
+                background-color: #ffffff1A;
+                backdrop-filter: blur(2rem);
+                flex: 1;
+                border-bottom-left-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+                color: #fff;
+                
+                .title {
+                    a {
+                        font-size: 1.4rem;             
+                        color: #5d078f;
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        color: #841cc0;
+                        margin: 0;
+                    }
+
+                }
+
+            }
+            &:hover .content {
+                transform: translate(0, 1.5rem);
+                box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+                border-top: .1rem solid rgba(0, 0, 0, .1);
+            }
+            &:hover .cart {
+                display: block;
+            }
+            &:hover img{
+                transform: rotate(22deg);
+            }
+            &:hover {
+                box-shadow: none;
+            }
+        }
+
+        
+    }
+}

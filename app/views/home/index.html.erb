@@ -1,2 +1,31 @@
 <% provide :title, "Trang chủ" %>
+    <div class="products">
+        <% @products.each do |product| %>
+            <div class="item">
 
+                <div class="image">
+                    <%= link_to ( image_tag product.image if product.image.attached?), product %>
+                </div>
+
+                <div class="box">
+                   <div class="add-cart">
+                    
+                        <%= form_with(url: cart_items_path(product)) do |f| %>
+                            <%= f.hidden_field :id, value: product.id %>
+                            <%= f.hidden_field :quantity, value: 1, min: 1 %>
+                            <%= f.submit "Thêm giỏ hàng", class:"btn" %>
+                        <% end %>
+                   
+                    </div>
+                
+                </div>
+             
+                <div class="content">
+                    <div class="title">
+                        <%= link_to product.name, product_path(product), class:"text-decoration-none" %>
+                        <p class="text">Giá: <%= number_to_currency(product.price, precision: 0)%></p>
+                    </div>
+                </div> 
+            </div>    
+        <% end%>
+    </div>

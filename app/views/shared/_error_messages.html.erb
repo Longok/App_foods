@@ -4,7 +4,7 @@
         <%= pluralize object.errors.count, "error" %>.
         <ul>
             <% object.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+                <li class="list-inline-item"><%= msg %></li>
             <% end %>
         </ul>
     </div>    

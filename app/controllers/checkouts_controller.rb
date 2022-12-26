@@ -5,6 +5,7 @@ class CheckoutsController < ApplicationController
     end
 
     def new
+        @cart_items = CartItem.all
         cart = Cart.find_by id: params[:id]
         @checkouts = Checkout.new
     end
