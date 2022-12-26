@@ -16,7 +16,7 @@
                     </div>
                     <div class="content">
                         <div class="title">
-                            <%= link_to product.name, product_path(product), class:"text-decoration-none text-light" %>
+                            <%= link_to product.name, product_path(product) %>
                             <p class="text">Giá: <%= number_to_currency(product.price, precision: 0)%></p>
                         </div>             
                     </div>

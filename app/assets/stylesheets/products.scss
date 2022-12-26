@@ -1,18 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: all .2s linear;
-    
-}
-
-body {
-    background-image: linear-gradient(to top right, #CC64a2, #5c3075);
-    min-height: 100vh;
-}
+$backgroud: #ffebc2;
+$primary: #841cc0;
 
 .container {
-    margin-top: 5rem;
+    margin-top: 15rem;
+
     .products {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -23,6 +14,7 @@ body {
         .item{
             cursor: pointer;
             position: relative;
+            box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
 
             .image {
                 display: flex;
@@ -34,13 +26,15 @@ body {
                 border-top-right-radius: 2rem;
 
                 img {
-                    height: 16rem;
+                    height: 18rem;
                     transition: 0.5s;               
                 }
   
             }
             &:hover .image {
                 transform: translate(0, -2rem);
+                border-bottom: .1rem solid rgba(0, 0, 0, .1);
+                box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
             }
 
             .cart {
@@ -64,15 +58,34 @@ body {
                 border-bottom-left-radius: 2rem;
                 border-bottom-right-radius: 2rem;
                 color: #fff;
+
+                .title {
+                    a {
+                        font-size: 1.6rem;
+                        color: $primary;
+                    }
+
+                    p {
+                        font-size: 1.4rem;
+                        color: #841cc0;
+                    }
+
+                }
             }
+
             &:hover .content {
                 transform: translate(0, 2rem);
+                box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+                border-top: .1rem solid rgba(0, 0, 0, .1);
             }
             &:hover .cart {
                 display: block;
             }
             &:hover img{
                 transform: rotate(22deg);
+            }
+            &:hover {
+                box-shadow: none;
             }
         }
 

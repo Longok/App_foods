@@ -1,21 +1,70 @@
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <%= link_to "Trang chủ", root_path, class:"navbar-brand"%>
-    <div class="d-flex justify-content-end bg-dark">
-        <%= link_to "Danh mục", categories_path, class:"p-2 text-decoration-none text-light" %>
-        <%= link_to "Sản phẩm", products_path, class:"p-2 text-decoration-none text-light" %>
-        <%= link_to "Giỏ hàng", cart_path, class:"p-2 text-decoration-none text-light" %>
-          <% if @cart.total_quantity > 0%>
-              <div style="color:white;text-align:center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background-color: red">
-                <%= @cart.total_quantity %>
-              </div>
-          <% end %>  
-        <% if logged_in? %>
-          <a class="p-2 text-decoration-none text-light">Xin chào: <%= current_user.name %></a>
-          <%= link_to "Thoát", logout_path,  data: { turbo_method: :delete}, class:"p-2 text-decoration-none text-light" %>
-        <% else %>
-          <%= link_to "Đăng nhập", login_path, class:"p-2 text-decoration-none text-light" %>
-        <% end %>
-    </div> 
-  </div>
-</nav>
+<header>
+    <div class="box">
+        <div class="logo">
+            <%= link_to root_path do %>
+                <%= image_tag "logo.png"%>
+            <% end %>
+            <span>Milk Shop</span>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li>
+                    <%= link_to "Trang chủ", root_path, class:"active" %>
+                </li>
+                
+                <li>
+                    <a href="#">Sản Phẩm
+                        <i class="ti-angle-down"></i>  
+                    </a>
+                    <ul class="submenu">
+                        <% Category.all.each do |cate| %>
+                            <li><%= link_to cate.name, category_path(cate), class:"text-decoration-none" %></li>
+                        <% end%>
+                    </ul>
+                </li>
+                <li><a href="#">Tin tức</a></li>
+                <li><a href="#">Liên hệ</a></li>                   
+            </ul> 
+        </nav>
+
+        <div class="icons">
+            <i class="fas fa-search" id="search-icon"></i>
+            <form action="#" class="search-form" method="post">
+                <input type="search" id="search-box"  name="keywords" placeholder="Tìm kiếm..." aria-label="Recipient's username">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+
+            <div class="cart-header">
+                <%= link_to cart_path do %>
+                    <i class="fas fa-cart-shopping"></i>
+                <% end %>
+
+                <% if @cart.total_quantity > 0 && @cart.total_quantity <= 99%>            
+                    <div class="cart-noti">
+                        <span><%= @cart.total_quantity %></span>
+
+                    </div>
+                <% elsif @cart.total_quantity > 99 %>
+                    <div class="cart-noti">
+                        <span>99+</span>
+                    </div>
+                <% end %>          
+            </div>
+            
+            <div class="name-header">
+                <% if logged_in? %>
+                    <span>Xin chào: <%= current_user.name %></span>
+                    <%= link_to "Thoát", logout_path,  data: { turbo_method: :delete} %>
+                <% else %>
+                    <%= link_to login_path do %>
+                        <i class="fas fa-user"></i>
+                    <% end %>
+                <% end %>
+            </div>       
+        </div>
+    </div>
+  
+</header>
+
+

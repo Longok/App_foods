@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   post 'cart_items/:id/update', to: "cart_items#update_quantity", as:'cart_item_update'
   delete 'cart_items/:id', to: "cart_items#delete_item", as:'cart_item_delete'
   resources :cart_items
+
+  resources :carts do 
+    resources :checkouts
+  end
 end

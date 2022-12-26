@@ -1,7 +1,7 @@
 <% provide :title, "Danh mục sản phẩm"%>
 
 <% @categories.each do |cate| %>
-    <%= link_to cate.name, category_path(cate), class:"text-decoration-none" %><br>
+    <%= link_to cate.name, category_path(cate.name), class:"text-decoration-none" %><br>
 <% end%>
 
 <%= link_to "Thêm danh mục sản phẩm", new_category_path, class:"btn btn-primary"%>

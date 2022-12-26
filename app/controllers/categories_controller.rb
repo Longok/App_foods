@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-    before_action :login_admin, only: [:new, :create]
+    before_action :login_admin, only: [:new, :create, :update, :destroy]
 
     def index
         @categories = Category.all
@@ -48,6 +48,6 @@ class CategoriesController < ApplicationController
 
     private
     def categories_params
-        params.require(:category).permit :name
+        params.require(:category).permit :name, :id
     end
 end

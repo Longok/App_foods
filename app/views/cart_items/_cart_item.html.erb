@@ -22,7 +22,7 @@
                 
             <div class="content">
                 <div class="title">
-                    <%= link_to product.name, product_path(product), class:"text-decoration-none text-light" %>
+                    <%= link_to product.name, product_path(product) %>
                     <p class="text">Đơn giá: <%= number_to_currency(product.price, precision: 0)%> /1 Thùng</p>
                     <p>Thành tiền: <%= number_to_currency(cart_item.total_price, precision: 0) %></p>
                 </div>             

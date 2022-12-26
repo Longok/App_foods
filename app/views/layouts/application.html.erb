@@ -3,6 +3,7 @@
   <head>
     <title><%= yield(:title)%> | App Foods</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-visit-control" content="reload">  <%# khi click sự kiện phải tải lại trang %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,7 +14,7 @@
   </head>
 
 <body>
-  <%= render "layouts/header" %>
+  <%= render partial: "layouts/header" %>
     <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="fs-4 alert alert-<%= message_type %>"><%= message %></div>

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     before_save { self.email = email.downcase }
     has_secure_password
+    has_many :checkouts
 
     validates :name, presence: true, length: {minimum: 4}
     validates :password, presence: true, length: { minimum: 6}

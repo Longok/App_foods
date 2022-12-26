@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
     has_many :cart_items
+    has_many :checkouts
     has_many :products, through: :cart_items
 
     def total

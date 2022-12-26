@@ -23,6 +23,7 @@ class CartItemsController < ApplicationController
             @cart_item.update(quantity: quantity)
         end
         @cart_item.save
+        flash[:info] = "Cập nhật số lượng thành công"
         redirect_to cart_path
     end
 

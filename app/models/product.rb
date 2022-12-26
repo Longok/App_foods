@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   has_many :carts, through: :cart_items
   has_one_attached :image
 
-  validates :name, presence: true, length: { minimum: 6 }
+  validates :name, presence: true, uniqueness: true, length: { minimum: 6 }
   validates :price, presence: true
   validates :category_id, presence: true
 

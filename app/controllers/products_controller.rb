@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
-    before_action :login_admin, only: [:new, :create]
+    before_action :login_admin, only: [:new, :create, :update, :destroy]
 
     def index
         @products = Product.all.order("id DESC")
+        @categories = Category.all
     end
 
     def new

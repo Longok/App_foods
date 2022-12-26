@@ -1,11 +1,25 @@
 .container {
 
+    .cart-checkout {
+        display: flex;
+
+        a {
+            margin-left: .5rem;
+            padding: .1rem;
+            font-size: 1.6rem;
+            background-color: #841cc0;
+            color: #fff;
+            border-radius: .5rem;
+        }
+    }
+
     .products {
       
         .cart_item {
             cursor: pointer;
             position: relative;
-
+            box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+            
             .image {
                 display: flex;
                 flex-direction: column;
@@ -16,22 +30,25 @@
                 border-top-right-radius: 2rem;
 
                 img {
-                    height: 10rem;
+                    height: 15rem;
                     transition: 0.5s;               
                 }
   
             }
             &:hover .image {
                 transform: translate(0, -2rem);
+                border-bottom: .1rem solid rgba(0, 0, 0, .1);
+                box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
             }
 
             .cart {
                 display: none;
                 position: absolute;
                 left: 50%;
-                top: 50%;
+                top: calc(50% + 1rem);
                 transform: translate(-50%, -50%);
                 border-radius: .5rem;
+                margin-top: auto;
                 
                 .action {
                     display: flex;
@@ -57,6 +74,7 @@
                             padding: 0 .2rem;
                             color: #fff;
                             min-width: 5rem;
+                            font-size: 1.2rem;
                         }
                     }
 
@@ -66,6 +84,8 @@
                         background-color: blueviolet;
                         margin: 0;
                         padding: 0 .2rem;
+                        font-size: 1.2rem;
+                        border-radius: .2rem;
                     }
                 }
             }
@@ -77,15 +97,34 @@
                 border-bottom-left-radius: 2rem;
                 border-bottom-right-radius: 2rem;
                 color: #fff;
+                
+                .title {
+                    a {
+                        font-size: 1.6rem;
+                        color: #841cc0;
+                    }
+
+                    p {
+                        font-size: 1.4rem;
+                        color: #841cc0;
+                    }
+
+                }
+
             }
             &:hover .content {
                 transform: translate(0, 2rem);
+                box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+                border-top: .1rem solid rgba(0, 0, 0, .1);
             }
             &:hover .cart {
                 display: block;
             }
             &:hover img{
                 transform: rotate(22deg);
+            }
+            &:hover {
+                box-shadow: none;
             }
         }
 

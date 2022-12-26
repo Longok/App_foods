@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 
     def show
-        
+        @categories = Category.all
     end
 
     def destroy

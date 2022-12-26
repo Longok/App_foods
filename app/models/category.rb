@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
-    has_many :products
+    has_many :products, dependent: :destroy
 
-    validates :name, presence: true, length: { minimum: 2}
+    validates :name, presence: true, uniqueness: true, length: { minimum: 2}
 
 end
