@@ -14,5 +14,5 @@
 <% if @cart.cart_items.count > 0 %>
     <%= render "cart_items/cart_item" %>
 <% else %>
-    <p class="h2">Giỏ hàng trống, <%= link_to "Mua Ngay", products_path, class:"text-decoration-none" %></p>
+    <p class="h2">Giỏ hàng trống, <%= link_to "Mua ngay", products_path, class:"text-decoration-none" %></p>
 <% end %>

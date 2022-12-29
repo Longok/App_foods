@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
     before_action :current_cart
+    before_action :show_slide
 
     def login_admin
         unless logged_in? && current_user.admin
@@ -18,4 +19,7 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def show_slide
+        @slides = Slide.all
+    end
 end

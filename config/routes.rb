@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   resources :carts do 
     resources :checkouts
   end
+
+  resources :slides
+
 end

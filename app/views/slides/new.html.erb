@@ -1,0 +1,17 @@
+<% provide :title, "Tạo slide" %>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="text-center mt-3">Thêm slides</h2>
+
+            <%= form_for @slides do |f| %>
+                <%= render "shared/error_messages", object: @slides %>
+
+                <%= f.text_field :name, placeholder:"Tên", class:"form-control mt-3" %>
+                <%= f.file_field :image, class:"form-control mt-3" %>
+                <%= f.submit "Thêm slide", class:"btn btn-primary mt-3" %>
+            <% end %>
+
+    </div>
+
+</div>       
