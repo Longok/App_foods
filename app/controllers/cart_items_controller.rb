@@ -5,7 +5,7 @@ class CartItemsController < ApplicationController
         @cart_item = @cart.add_product(@product)
         @cart_item.save
         flash[:info] = "Đã thêm vào giỏ hàng"
-        redirect_to cart_path
+        redirect_to root_path
     end
 
     def add_quantity

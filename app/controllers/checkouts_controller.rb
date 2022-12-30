@@ -16,6 +16,7 @@ class CheckoutsController < ApplicationController
         @checkouts.user_id = current_user.id
 
         if @checkouts.save
+            CheckoutMailer.with(user: current_user, checkout: @checkouts).create.deliver_now
             session[:cart_id] = nil
             flash[:success] = "Thanh toán thành công"
             redirect_to cart_checkouts_path

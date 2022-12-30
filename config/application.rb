@@ -11,8 +11,13 @@ module AppFoods
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     I18n.available_locales = %i[vi en]
-    config.i18n.default_locale = :vi
-    
+    config.i18n.default_locale = :vi         #Đa ngôn ngữ
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do # web bị Cors 
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

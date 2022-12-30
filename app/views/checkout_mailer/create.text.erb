@@ -1,0 +1,17 @@
+MILK SHOP XIN CHÀO <span class="text-danger"><%= @user.name.upcase %></span>, bạn đã đặt hàng thành công !
+
+CHI TIẾT GIỎ HÀNG
+
+-------------------------------
+             
+<% @checkouts.cart.cart_items.each do | e| %>   
+
+    <%= e.product.name %> | Số lượng: <%= e.quantity %> | Đơn giá: <%= number_to_currency(e.product.price, precision: 0)%><br>
+
+<% end %>
+
+Thành tiền: <%= number_to_currency(@checkouts.cart.total, precision: 0) %>          
+                       
+-------------------------------
+
+Cảm ơn bạn đã ủng hộ chúng tôi, chúc bạn một ngày tuyệt vời !
