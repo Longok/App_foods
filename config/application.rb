@@ -12,7 +12,7 @@ module AppFoods
     config.load_defaults 7.0
     I18n.available_locales = %i[vi en]
     config.i18n.default_locale = :vi         #Đa ngôn ngữ
-    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do # web bị Cors 
+    config.middleware.insert_before 0, Rack::Cors do # web bị Cors 
       allow do
         origins '*'
         resource '*', :headers => :any, :methods => [:get, :post, :options]
