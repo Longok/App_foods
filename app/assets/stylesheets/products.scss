@@ -205,4 +205,33 @@ $primary: #841cc0;
 
    
 }
+@media (max-width: 768px) {
+    .container {
+
+        .products {
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .item {
+
+                .image {
+
+                    img {
+                        height: 16rem;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 450px) {
     
+    .container {
+
+        .products {
+            padding: 0 8%;
+            grid-template-columns: 1fr;
+        }
+    }
+}   

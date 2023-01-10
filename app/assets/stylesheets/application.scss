@@ -48,6 +48,7 @@ body {
     background-color: $backgroud;
     font-family: monospace;
     margin: 0;
+    overflow: hidden;
 }
 
 header {
@@ -212,4 +213,125 @@ header {
         }
 
     }
+}
+
+.paginate {
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    background: $backgroud;
+    margin-top: 5rem;
+    border-top: .2rem dashed $primary;
+    padding: 0 8%;
+    
+    .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 1.2rem;
+        margin-top: 3rem;
+        .box {
+            .footer-app {
+                img {
+                    padding: .5rem 0;
+                }
+            }
+            p {
+                line-height: 1.8;
+                font-weight: bolder;
+                font-size: 2rem;
+                color: #1a3080;
+                padding-top: .5rem;
+            }
+
+            .share {
+                a {
+                    height: 4rem;
+                    width: 4rem;
+                    line-height: 4rem;
+                    border-radius: .5rem;
+                    font-size: 2rem;
+                    color: #1a3080;
+                    background: rgb(216, 213, 213);
+                    text-align: center;
+
+                    &:hover {
+                        background: #841cc0;
+                        color: #fff;                
+                    }
+                }
+              
+            }
+            .links-web {
+                font-size: 1.5rem;
+                display: block;
+                padding: .5rem 0;
+            }
+            .fa-shopping-cart {
+                font-size: 1.5rem;
+                width: 4rem;
+                height: 4rem;
+                background: rgb(216, 213, 213);
+                color: #1a3080;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 4rem;
+
+                &:hover {               
+                    background: #841cc0;
+                    color: #fff;           
+                }
+            }
+            .links {
+                display: block;
+                font-size: 1.5rem;
+                color: #841cc0;
+                padding: 1rem 0;
+
+                i {
+                    color: #1a3080;
+                    padding-right: .5rem;
+                }
+                
+                &:hover i {
+                    padding-right: 2rem;
+                }
+            }
+        } 
+    }
+}
+.credit {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    background: #1a3080;
+
+    span {
+        color: #f572ea;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 2%;
+
+        .box {
+
+            .logo {
+                width: 14rem;
+    
+                .name-logo {
+                    display: none;
+                }
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+    }
+
 }

@@ -1,13 +1,16 @@
 #slide {
     margin-top: 7rem;
-    width: 100%;
     box-shadow: 0 3rem 5rem #bdbdbd;
-    width: max-content;
 
     .slide-item {
         background-size: cover;
         display: inline-block;
         transition: 1.5s;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 
     .buttons {

@@ -41,21 +41,27 @@
 </head>
 <body>
 
-    <h1 style="display: flex;">
-        <%= image_tag(attachments['logo.png'].url) %>
-        <p style="color: blue">Milk Shop</p>
-    </h1>
-
+  <h1 style="display: flex; align-item: center">
+      <%= image_tag(attachments['logo.png'].url) %>
+      <p style="color: blue">Milk Shop</p>
+  </h1>
 
   <div style="display: flex; margin-bottom: 15px">
     <h2 class="all-font-montserrat" style="color: blue; margin: 0; font-size: 20px;">Giỏ hàng của bạn | </h2> 
     <span style="color: red; padding-left: 5px; font-size: 20px;"><%= number_to_currency(@checkouts.cart.total, precision: 0) %></span>
   </div>
 
-<% @checkouts.cart.cart_items.each do | item | %>   
+<% @checkouts.cart.cart_items.each do | item | %>
+  
   <div style="display: flex; align-items: center;">
 
     <div style="width: 120px">
+        <% if item.product.image.attached? %>
+            <% @filename = item.product.to_s + item.product.image.filename.extension_with_delimiter %>
+              <% if ActiveStorage::Blob.service.respond_to?(:path_for) %>
+              <% attachments[@filename] = File.read(ActiveStorage::Blob.service.send(:path_for, item.product.image.key)) %>
+              <% end %>
+          <% end %>
         <%= image_tag(attachments[@filename].url) %> 
     </div>
 
@@ -66,7 +72,7 @@
   </div>
 <% end %>
 
-  <div class="sm-block sm-text-center sm-py-8" style=" padding-left: 70px;">
+  <div class="sm-block sm-text-center sm-py-8" style=" padding-left: 70px; margin-top: 10px">
     <h2 class="all-font-montserrat" style="margin: 0; color: #4a5568; font-size: 20px;">&copy; Milk Shop</h2>
     <p style="padding-top: 5px; color: #718096; font-size: 14px;">Nguyễn Xí - Đà Nẵng </p>
   </div>
