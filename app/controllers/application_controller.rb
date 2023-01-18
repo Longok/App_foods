@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
+    include Pagy::Backend
     before_action :current_cart
     before_action :show_slide
 

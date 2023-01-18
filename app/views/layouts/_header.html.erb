@@ -1,70 +1,121 @@
-<header>
-    <div class="box">
-        <div class="logo">
-            <%= link_to root_path do %>
-                <%= image_tag "logo.png"%>
-            <% end %>
-            <%= link_to "Milk Shop", root_path, class:"name-logo" %>
-        </div>
+<header class="header">
 
-        <nav class="menu">
-            <ul>
-                <li>
-                    <%= link_to "Trang chủ", root_path, class:"active" %>
-                </li>
-                
-                <li>
-                    <a href="#">Sản Phẩm
-                        <i class="ti-angle-down"></i>  
+    <div class="header__top">
+       
+        <ul class="header__top-left">
+            <li class="logo">
+                <%= link_to root_path do %>
+                    <%= image_tag "logo.png"%>
+                <% end %>
+            </li>
+            <li data-controller="menuheader" class="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </li>
+            <li class="search">
+                <form action="/search" class="search-form">
+                    <input type="search" id="search-box" name="q" placeholder="Tìm kiếm...">
+                    <label for="search-box" class="fas fa-search"></label>
+                </form>
+            </li>     
+        </ul>
+
+        <ul class="header__top-right">
+            
+            <li class="header__items">
+                <div class="header__apps">
+                    <span>Tải APP ngay</span>
+                    <a class="appstore" target="_blank" href="https://appsto.re/vn/2t-lib.i">
+                        <img src="https://www.vinamilk.com.vn/static/images/download-ios.png">
                     </a>
-                    <ul class="submenu">
-                        <% Category.all.each do |cate| %>
-                            <li><%= link_to cate.name, category_path(cate), class:"text-decoration-none" %></li>
-                        <% end%>
-                    </ul>
-                </li>
-                <li><a href="#">Tin tức</a></li>
-                <li><a href="#">Liên hệ</a></li>                   
+                    <a class="googleplay" target="_blank" href="https://play.google.com/store/apps/details?id=com.giacmosuaviet">
+                        <img src="https://www.vinamilk.com.vn/static/images/download-android.png">
+                    </a>
+                </div>
+            </li>
+
+            <li class="header__items">
+                <div class="header__items-noti">
+                    <a href="">
+                        <i class="fa-regular fa-bell"></i>
+                        <span>Thông báo</span>
+                    </a>
+                
+                </div>
+            </li>
+
+            <li class="header__items">
+                <div class="header__items-carts">           
+                    <%= link_to cart_path do %>
+                        <div class="carts">  
+
+                            <i class="fas fa-cart-shopping"></i>
+                            <span>Giỏ hàng</span>
+                            
+                            <% if @cart.total_quantity > 0 && @cart.total_quantity <= 99%>            
+                                <div class="cart-noti">
+                                    <p><%= @cart.total_quantity %></p>
+                                </div>
+                            <% elsif @cart.total_quantity > 99 %>
+                                <div class="cart-noti">
+                                    <p>99+</p>
+                                </div>
+                            <% end %>                       
+
+                        </div>
+                    <% end %>
+                </div>
+                
+            </li>
+
+            <li class="header__items">
+
+                <div class="header__items-name">  
+                       
+                    <a href="" class="login">                  
+                        <% if logged_in? %>
+                            <i class="fa-regular fa-user active"></i>
+                            <span class="login__name"><%= current_user.name %></span>
+                            <%= link_to "|Thoát", logout_path,  data: { turbo_method: :delete} %>
+                        <% else %>
+                            <%= link_to login_path do %>
+                                <i class="fa-regular fa-user"></i>
+                                <span>Tài khoản</span>
+                            <% end %>
+                        <% end %>              
+                    </a>
+                    
+                </div>
+                
+            </li>
+        </ul>
+    
+    </div>
+
+    <div class="header__bottom">
+
+        <nav class="menu" id="menu">
+            <ul class="submenu">
+                <div class="back-home">
+                    <%= link_to root_path do %>
+                        <i class="fa-solid fa-house"></i>
+                        TRANG CHỦ
+                    <% end %>
+                    <i class="fa-solid fa-xmark" id="closeMenu"></i>
+                </div>
+                <p>DANH MỤC SẢN PHẨM</p>
+                <% Category.all.each do |cate| %>
+                    <li><%= link_to cate.name, category_path(cate) %>
+                    </li>
+                <% end%>
+                
             </ul> 
         </nav>
-
-        <div class="icons">
-            <i class="fas fa-search" id="search-icon"></i>
-            <form action="#" class="search-form" method="post">
-                <input type="search" id="search-box"  name="keywords" placeholder="Tìm kiếm..." aria-label="Recipient's username">
-                <label for="search-box" class="fas fa-search"></label>
-            </form>
-
-            <div class="cart-header">
-                <%= link_to cart_path do %>
-                    <i class="fas fa-cart-shopping"></i>
-                <% end %>
-
-                <% if @cart.total_quantity > 0 && @cart.total_quantity <= 99%>            
-                    <div class="cart-noti">
-                        <span><%= @cart.total_quantity %></span>
-
-                    </div>
-                <% elsif @cart.total_quantity > 99 %>
-                    <div class="cart-noti">
-                        <span>99+</span>
-                    </div>
-                <% end %>          
-            </div>
-            
-            <div class="name-header">
-                <% if logged_in? %>
-                    <span>Xin chào: <%= current_user.name %></span>
-                    <%= link_to "Thoát", logout_path,  data: { turbo_method: :delete} %>
-                <% else %>
-                    <%= link_to login_path do %>
-                        <i class="fas fa-user"></i>
-                    <% end %>
-                <% end %>
-            </div>       
-        </div>
+        
     </div>
-  
+
 </header>
+
+
+
 
 

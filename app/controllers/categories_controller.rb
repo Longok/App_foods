@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
     before_action :login_admin, only: [:new, :create, :update, :destroy]
 
     def index
-        @categories = Category.all
+        @categories = Category.includes(:products)
     end
 
     def new
@@ -22,6 +22,8 @@ class CategoriesController < ApplicationController
 
     def show
         @categories = Category.find params[:id]
+        @pagy, @products = pagy(@categories.products.all.order("category_id DESC"), items: 12)
+
     end
 
     def edit

@@ -50,7 +50,7 @@ gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 # gem 'mini_magick', '~> 4.12'
 # Use Sass to process CSS
 # gem "sassc-rails"
-
+gem 'pagy', '~> 6.0', '>= 6.0.1'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

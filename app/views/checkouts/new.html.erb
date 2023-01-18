@@ -1,7 +1,7 @@
 <% provide :title, "Thanh toán" %>
 
 <div class="row">
-    <div class="col offset-md-12">
+    <div class="col offset-md-12 mt-5">
         <h2 class="text-center mt-3">Điền Thông Tin Thanh Toán</h2>
        
         <%= form_with model: @checkouts, url: cart_checkouts_path do |f| %>
@@ -18,7 +18,7 @@
         <% end %>
     </div>
 
-    <div class="col offset-md-12">
+    <div class="col offset-md-12 mt-5">
         <p class="h2">Giỏ hàng/ Tổng cộng: <%= number_to_currency(@cart.total, precision: 0) %></p>
         <div class="checkouts">
             <% @cart.cart_items.each do | cart_item| %>
@@ -44,9 +44,8 @@
                         
                     <div class="content">
                         <div class="title">
-                            <%= link_to product.name, product_path(product) %>
-                            <p class="text">Đơn giá: <%= number_to_currency(product.price, precision: 0)%></p>
-                            <p>Thành tiền: <%= number_to_currency(cart_item.total_price, precision: 0) %></p>
+                            <p class="text"><%= number_to_currency(product.price, precision: 0)%></p>
+                            <p>x<%= cart_item.quantity %></p>
                         </div>             
                     </div>          
                 </div>
