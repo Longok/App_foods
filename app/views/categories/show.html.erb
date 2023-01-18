@@ -1,8 +1,12 @@
 <% provide :title, @categories.name %>
 
 <p class="h2">Danh mục: <%= @categories.name %></p>
-<%= link_to "Sửa", edit_category_path, class:"btn btn-primary mt-2" %>
-<%= link_to "Xóa", category_path, data: { turbo_method: :delete}, class:"btn btn-danger mt-2" %>
+
+<% if logged_in? %>
+    <%= link_to "Sửa", edit_category_path, class:"btn btn-primary mt-2" %>
+    <%= link_to "Xóa", category_path, data: { turbo_method: :delete}, class:"btn btn-danger mt-2" %>
+<% end %>    
+
     <div class="products">
         <% @categories.products.each do |product| %>
             <div class="item">
@@ -33,6 +37,12 @@
             </div>    
         <% end%>
     </div>
-<%= link_to "Thêm sản phẩm", new_product_path, class:"btn btn-primary mt-2" %>
+  <%# Paginate %>
+    <% if @products.count >= 4 %>
+        <%= raw pagy_nav(@pagy) %>
+    <% end %>
+<% if logged_in? %>
+    <%= link_to "Thêm sản phẩm", new_product_path, class:"btn btn-primary mt-2" %>
+<% end %>    
 
 

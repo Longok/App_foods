@@ -3,7 +3,7 @@
         
         <% product = cart_item.product %>
 
-        <div class="item">
+        <div  class="item">
             <div class="image">
                 <%= link_to ( image_tag product.image if product.image.attached?), product, class:"cart-image" %>
             </div>
@@ -33,4 +33,4 @@
             
         </div>
     <% end %>
-</div>    
+</div>

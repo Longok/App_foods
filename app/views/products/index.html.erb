@@ -36,6 +36,8 @@
                
         <% end %>
     </div>
-<%= link_to "Thêm sản phẩm", new_product_path, class:"btn btn-primary" %>
+<% if logged_in? %>
+    <%= link_to "Thêm sản phẩm", new_product_path, class:"btn btn-primary" %>
+<% end %>    
 
 

@@ -1,8 +1,8 @@
 <section id="slide">
     
     <% @slides.each do |slide| %>
-        <div class="slide-item">
-            <%= image_tag(slide.image, id: 'slide-item') if slide.image.attached? %>
+        <div class="slide-items">
+            <%= image_tag(slide.image, class: 'itemImg active') if slide.image.attached? %>
         </div>
     <% end %>
     <div class="buttons">

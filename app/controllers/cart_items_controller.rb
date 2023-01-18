@@ -12,7 +12,7 @@ class CartItemsController < ApplicationController
         @cart_item = CartItem.find(params[:id])
         @cart_item.quantity += 1
         @cart_item.save
-        flash[:info] = "Cập nhật số lượng thành công"
+        flash[:warning] = "Cập nhật số lượng thành công"
         redirect_to cart_path(@cart)
     end
 
@@ -30,6 +30,7 @@ class CartItemsController < ApplicationController
     def delete_item
         @cart_item = CartItem.find(params[:id])
         @cart_item.destroy
+        flash[:error] = "Đã xóa khỏi giỏ hàng"
         redirect_to cart_path
     end
 
