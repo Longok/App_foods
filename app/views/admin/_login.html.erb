@@ -1,0 +1,29 @@
+<%= render partial: "admin/application" %>
+
+<% provide :title, "Đăng nhập admin" %>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="admin_login">
+
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center">Đăng nhập admin </h1>
+                <%= form_for :session, url: admin_login_path, local: true do |f| %>
+
+                <%= f.email_field :email, class: "form-control mt-4", placeholder: "Email" %>
+
+                <%= f.password_field :password, class: "form-control mt-4", placeholder: "Mật khẩu" %>
+
+                <%= f.submit "Đăng nhập", class:"btn btn-primary mt-4 mb-3" %>
+
+                <% end %>
+
+                <h4>Chưa có tài khoản?<%= link_to "Đăng ký ngay", sign_up_path, class:"p-2 text-decoration-none" %></h4>
+            </div>
+        
+        </div>
+    </div>
+    
+</div>

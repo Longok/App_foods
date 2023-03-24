@@ -9,7 +9,12 @@ module SessionsHelper
     end
 
     def logged_in?
-        current_user.present?
+        if current_user.present? || @current_cart
+            current_user
+            @cart
+        else
+            current_user
+        end
     end
 
     def log_out

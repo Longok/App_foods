@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
     before_action :login_admin, only: [:new, :create, :update, :destroy]
 
-    def index
-       
+    def index 
         @pagy, @products = pagy(Product.all.order("category_id DESC"), items: 12)
     end
 
@@ -45,6 +44,12 @@ class ProductsController < ApplicationController
         flash[:success] = "Xóa sản phẩm thành công"
         redirect_to products_path
     end
+
+    def search
+        @products = Product.where("name LIKE ?", "%" + params[:name] + "%")
+        render :search
+    end
+    
     private
 
     def product_params

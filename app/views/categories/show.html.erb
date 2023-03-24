@@ -29,9 +29,25 @@
                 </div>
 
                 <div class="content">
+                    <div class="info">
+                        <div class="review">
+                            
+                            <% if rand(0..5) > 0 %>
+                                <i class="fa-solid fa-star"></i>
+                                <span>(<%= rand(4..5) %>)</span>
+                            <% else %>
+                                <i class="fa-regular fa-star"></i>
+                                <span>(0)</span>
+                            <% end %>
+                        </div>
+
+                        <div class="sold">
+                            <span>Đã bán: <%= rand(1...100)%>k</span>
+                        </div>
+                    </div>
                     <div class="title">
                         <%= link_to product.name, product_path(product), class:"text-decoration-none" %>
-                        <p class="text">Giá: <%= number_to_currency(product.price, precision: 0)%></p>
+                        <p class="price"><%= number_to_currency(product.price, precision: 0)%></p>
                     </div>
                 </div> 
             </div>    

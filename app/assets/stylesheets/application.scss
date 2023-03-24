@@ -136,9 +136,7 @@ body {
         }
 
         .header__top-right {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include flexBox($justify: space-between, $align: center);
             width: 57%;
 
             .header__items {
@@ -147,8 +145,7 @@ body {
                 align-items: center;
 
                 a {
-                    display: flex;
-                    align-items: center;
+                    @include flexBox($align: center);
                     color: $secondary;
 
                     i {
@@ -158,8 +155,7 @@ body {
                 }
 
                 .header__apps {
-                    display: flex;
-                    align-items: center;
+                    @include flexBox($align: center);
 
                     span {
                         color: $secondary;
@@ -217,8 +213,7 @@ body {
                     display: flex;
     
                     .login {
-                        display: flex;
-                        align-items: center;
+                        @include flexBox($align: center);
 
                         i {
                             color: $secondary;
@@ -378,8 +373,7 @@ body {
                 flex-direction: column;
 
                 .info {
-                    display: flex;
-                    justify-content: space-between;
+                    @include flexBox($justify: space-between);
                     color: #346dd6;
                     font-size: larger;
                     margin-bottom: 1rem;
@@ -521,8 +515,7 @@ body {
         .infomation {
 
             .ship, .quality, .support, .benefit {
-                display: flex;
-                align-items: center;
+                @include flexBox($align: center);
             }
 
             .ship, .quality, .support {
@@ -563,9 +556,7 @@ body {
         z-index: 1000;
 
         .toast {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            @include flexBox($justify: space-between, $align: center);
             background-color: $secondary;
             border-radius: .5rem;
             border-left: .4rem solid;
@@ -641,12 +632,15 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
         gap: 1.2rem;
         margin-top: 3rem;
+
         .box {
+            
             .footer-app {
                 img {
                     padding: .5rem 0;
                 }
             }
+
             p {
                 line-height: 1.8;
                 font-weight: bolder;

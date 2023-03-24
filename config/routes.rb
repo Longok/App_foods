@@ -25,5 +25,9 @@ Rails.application.routes.draw do
   end
 
   resources :slides
+  get '/search', to: "products#search"
 
+  get '/admin', to: "admin#index"
+  get '/admin_login', to: "admin#new"
+  post '/admin_login', to: "admin#create"
 end

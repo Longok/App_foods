@@ -1,0 +1,65 @@
+<header class="header">
+
+    <div class="header__top">
+       
+        <ul class="header__top-left">
+            <li class="logo">
+                <%= link_to root_path do %>
+                    <%= image_tag "logo.png"%>
+                <% end %>
+            </li>
+            <li data-controller="menuheader" class="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </li>
+            <li class="search">
+                <form action="/search" class="search-form">
+                    <input type="search" id="search-box" name=" " placeholder="Tìm kiếm...">
+                    <label for="search-box" class="fas fa-search"></label>
+                </form>
+            </li>     
+        </ul>
+
+        <ul class="header__top-right">
+            
+            <li class="header__items">
+                <div class="header__apps">
+                    <span>Tải APP ngay</span>
+                    <a class="appstore" target="_blank" href="https://appsto.re/vn/2t-lib.i">
+                        <img src="https://www.vinamilk.com.vn/static/images/download-ios.png">
+                    </a>
+                    <a class="googleplay" target="_blank" href="https://play.google.com/store/apps/details?id=com.giacmosuaviet">
+                        <img src="https://www.vinamilk.com.vn/static/images/download-android.png">
+                    </a>
+                </div>
+            </li>
+
+            <li class="header__items">
+
+                <div class="header__items-name">  
+                       
+                    <a href="" class="login">                  
+                        <% if logged_in? %>
+                            <i class="fa-regular fa-user active"></i>
+                            <span class="login__name"><%= current_user.name %></span>
+                            <%= link_to "|Thoát", logout_path,  data: { turbo_method: :delete} %>
+                        <% else %>
+                            <%= link_to admin_login_path do %>
+                                <i class="fa-regular fa-user"></i>
+                                <span>Tài khoản admin</span>
+                            <% end %>
+                        <% end %>              
+                    </a>
+                    
+                </div>
+                
+            </li>
+        </ul>
+    
+    </div>
+
+</header>
+
+
+
+
+
