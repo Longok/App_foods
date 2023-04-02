@@ -1,8 +1,8 @@
+
 #slide {
     position: relative;
-    display: flex;
     overflow: hidden;
-    margin: 9rem 8% 0;
+    margin: 5rem 0;
     
     .slide-items {
         background-size: cover;
@@ -15,40 +15,28 @@
 
         .itemImg {
             width: 100%;
-            height: auto;
-        }
-    }
-
-    .buttons {
-        position: absolute;
-        bottom: 1rem;
-        left: 0;
-        text-align: center;
-        width: 100%;
-
-        button {
-            border: none;
-            background-color: transparent;
-            transition: .5s;
-
-            i {
-                font-size: 3rem;
-                color: #be68e6;
-
-                &:hover {
-                    color: #688ae6;
-                }
-            }    
+            height: 100%;
+            object-fit: cover;
         }
     }
 
 }
 
+
+@media only screen and (max-width: 1199px) { 
+    
+    #slide {
+        padding: 0;
+        margin: 5rem -15%;
+    }
+
+} 
+
 @media only screen and (max-width: 770px) { 
     
     #slide {
         padding: 0;
-        margin: 6rem 0 0;
+        margin: 5rem -20%;
     }
 
 } 

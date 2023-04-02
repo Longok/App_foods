@@ -1,0 +1,83 @@
+<% provide :title, "Chi tiết đơn hàng" %>
+
+<%= render partial: "admin/header" %>
+
+<div class="new-items">
+
+    <div class="dashboard">
+    
+        <%=render partial: "admin/sidebar" %>
+
+        <div class="aside">
+            <div class="col-md-10 mx-auto mt-5 d-flex">
+                <table class="table table-striped table-bordered mt-5 h4">
+                
+                        <tbody>
+                            <tr>
+                                <td>Tên người đặt hàng</td>
+                                <td><%= @checkout.user.name %></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><%= @checkout.user.email %></td>
+                            </tr>
+                            <tr>
+                                <td>Số điện thoại</td>
+                                <td><%= @checkout.phone %></td>
+                            </tr>
+                            <tr>
+                                <td>Địa chỉ</td>
+                                <td><%= @checkout.address %></td>
+                            </tr>
+                            <tr>
+                                <td>Ngày đặt hàng</td>
+                                <td><%= @checkout.created_at %></td>
+                            </tr>                                
+                            <tr>
+                                <td>Hình thức thanh toán</td>
+                                <td><%= @checkout.payment_type %></td>
+                            </tr>
+                            <tr>
+                                <td>Ghi chú</td>
+                                <td><%= @checkout.note %></td>
+                            </tr>
+                        </tbody>
+                   
+                </table>   
+            
+            <div class="products-table">
+            
+                <table class="table table-striped table-bordered mt-4 text-center">
+                    <thead>
+                        <tr class="h4">
+                            <th>Hình ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá (vnđ)</th>
+                            <th>Thành tiền</th>
+                        </tr>    
+                    </thead>
+                    <tbody>   
+                        <% @cart.cart_items.each do | cart_item | %>
+                
+                        <% product = cart_item.product %>
+                            <tr class="h5">
+                                <td style="width: 8rem; height: 8rem;">
+                                    <%= image_tag(product.image, style:"width: 100%") if product.image.attached? %>
+                                </td>
+                                <td><%= link_to product.name, product_path(product) %></td>
+                                <td><%= cart_item.quantity %></td>
+                                <td><%= number_to_currency(product.price, precision: 0)%></td>
+                                <td><%= number_to_currency(cart_item.total_price, precision: 0) %></td>
+                            </tr>
+                        <% end %>
+                            <tr class="h5">
+                                <td>Tong <%= number_to_currency(@cart.total, precision: 0) %></td>
+                            </tr>
+                    </tbody>
+                </table>                 
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

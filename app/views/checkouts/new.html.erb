@@ -1,55 +1,61 @@
 <% provide :title, "Thanh toán" %>
 
-<div class="row">
-    <div class="col offset-md-12 mt-5">
-        <h2 class="text-center mt-3">Điền Thông Tin Thanh Toán</h2>
-       
-        <%= form_with model: @checkouts, url: cart_checkouts_path do |f| %>
-            <%= render "shared/error_messages", object: @checkouts %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.hidden_field :cart_id, value: @cart.id %>
-            <%= f.text_field :phone, placeholder:"Số điện thoại", class:"form-control mt-3" %>
-            <%= f.text_field :address, placeholder:"Địa chỉ", class:"form-control mt-3" %>
-            <%= f.text_field :note, placeholder:"Ghi chú", class:"form-control mt-3" %>
-            <%= f.label :payment_type, "Chọn kiểu thanh toán:", class:"h3 mt-3" %>
-            <%= f.select :payment_type, Checkout::PAYMENT_TYPE, class:"form-select" %>
-            <br>
-            <%= f.submit "Thanh Toán",  class:"btn btn-primary mt-3" %>
-        <% end %>
-    </div>
+<%= render partial: "layouts/header" %>
+<%= render partial: "layouts/slide" %>
 
-    <div class="col offset-md-12 mt-5">
-        <p class="h2">Giỏ hàng/ Tổng cộng: <%= number_to_currency(@cart.total, precision: 0) %></p>
-        <div class="checkouts">
-            <% @cart.cart_items.each do | cart_item| %>
-                
-                <% product = cart_item.product %>
+<div class="container">
 
-                <div class="cart_item">
-                    <div class="image">
-                        <%= link_to ( image_tag product.image if product.image.attached?), product %>
-                    </div>
-                    
-                    <div class="cart">
-                        <div class="action">
-                            <%= form_with url: cart_item_update_path(cart_item) do |f| %>
-                                <%= f.hidden_field :id, value: product.id %>
-                                <%= f.number_field :quantity, class:"quantity", value: cart_item.quantity, min: 0 %>
-                                <%= f.submit "Cập nhật", class:"btn" %>
-                            <% end %>
-
-                            <%= link_to "Xóa", cart_item_delete_path(cart_item), class:"btn", data: { turbo_method: :delete} %>
-                        </div>
-                    </div>
-                        
-                    <div class="content">
-                        <div class="title">
-                            <p class="text"><%= number_to_currency(product.price, precision: 0)%></p>
-                            <p>x<%= cart_item.quantity %></p>
-                        </div>             
-                    </div>          
-                </div>
+    <div class="row">
+        <div class="col offset-md-12 mt-5">
+            <h2 class="text-center mt-3">Thông Tin Thanh Toán</h2>
+        
+            <%= form_with model: @checkouts, url: cart_checkouts_path do |f| %>
+                <%= render "shared/error_messages", object: @checkouts %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :cart_id, value: @cart.id %>
+                <%= f.text_field :phone, placeholder:"Số điện thoại", class:"form-control mt-3" %>
+                <%= f.text_field :address, placeholder:"Địa chỉ", class:"form-control mt-3" %>
+                <%= f.text_field :note, placeholder:"Ghi chú", class:"form-control mt-3" %>
+                <%= f.label :payment_type, "Chọn kiểu thanh toán:", class:"h3 mt-3" %>
+                <%= f.select :payment_type, Checkout::PAYMENT_TYPE, class:"form-select" %>
+                <br>
+                <%= f.submit "Thanh Toán",  class:"btn btn-primary mt-3" %>
             <% end %>
+        </div>
+
+        <div class="col offset-md-12 mt-5">
+            <p class="h2">Giỏ hàng/ Tổng cộng: <%= number_to_currency(@cart.total, precision: 0) %></p>
+            <div class="checkouts">
+                <% @cart.cart_items.each do | cart_item| %>
+                    
+                    <% product = cart_item.product %>
+
+                    <div class="cart_item">
+                        <div class="image">
+                            <%= link_to ( image_tag product.image if product.image.attached?), product %>
+                        </div>
+                        
+                        <div class="cart">
+                            <div class="action">
+                                <%= form_with url: cart_item_update_path(cart_item) do |f| %>
+                                    <%= f.hidden_field :id, value: product.id %>
+                                    <%= f.number_field :quantity, class:"quantity", value: cart_item.quantity, min: 0 %>
+                                    <%= f.submit "Cập nhật", class:"btn" %>
+                                <% end %>
+
+                                <%= link_to "Xóa", cart_item_delete_path(cart_item), class:"btn", data: { turbo_method: :delete} %>
+                            </div>
+                        </div>
+                            
+                        <div class="content">
+                            <div class="title">
+                                <p class="text"><%= number_to_currency(product.price, precision: 0)%></p>
+                                <p>x<%= cart_item.quantity %></p>
+                            </div>             
+                        </div>          
+                    </div>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>

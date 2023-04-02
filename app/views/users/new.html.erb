@@ -1,21 +1,23 @@
 <% provide :title, "Đăng ký" %>
+<%= render partial: "layouts/header" %>
+<%= render partial: "layouts/slide" %>
 <div class="row">
-    <div class="col-md-6 offset-md-3">
-    <h1 class="text-center">Đăng ký tài khoản</h1>
-        <%= form_for @user do |f| %>
-        
-        <%= render "shared/error_messages", object: @user %>
+    <div class="col-md-6 offset-md-3 mb-5">
+        <h1 class="text-center">Đăng ký tài khoản</h1>
+            <%= form_for @user do |f| %>
+            
+                <%= render "shared/error_messages", object: @user %>
 
-        <%= f.text_field :name, class:"form-control mt-4", placeholder: "Tên" %>
+                <%= f.text_field :name, class:"form-control mt-4", placeholder: "Tên" %>
 
-        <%= f.email_field :email, class: "form-control mt-4", placeholder: "Email" %>
+                <%= f.email_field :email, class: "form-control mt-4", placeholder: "Email" %>
 
-        <%= f.password_field :password, class: "form-control mt-4", placeholder: "Mật khẩu" %>
+                <%= f.password_field :password, class: "form-control mt-4", placeholder: "Mật khẩu" %>
 
-        <%= f.password_field :password_confirmation, class: "form-control mt-4", placeholder: "Nhập lại mật khẩu" %>
+                <%= f.password_field :password_confirmation, class: "form-control mt-4", placeholder: "Nhập lại mật khẩu" %>
 
-        <%= f.submit "Tạo tài khoản", class:"btn btn-primary mt-4" %>
+                <%= f.submit "Tạo tài khoản", class:"btn btn-primary mt-4" %>
 
-        <% end %>
+            <% end %>
     </div>
 </div>

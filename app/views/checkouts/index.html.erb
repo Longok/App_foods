@@ -1,8 +1,45 @@
-<% provide :title, "Thanh toán" %>
+<% provide :title, "Danh sách đơn hàng" %>
 
-<div class="row">
-   
-    <div class="col offset-md-12">
-        <h2>Cảm ơn đã đặt hàng, chúng tôi sẽ giao hàng sớm nhất:</h2>
+<%= render partial: "admin/header" %>
+
+<div class="new-items">
+
+    <div class="dashboard">
+    
+        <%=render partial: "admin/sidebar" %>
+
+        <div class="aside">
+        
+            <div class="products-table col-md-8 mx-auto" style="margin-top: 3rem; font-size: 1.8rem">
+                        
+                    <table class="table table-borderless table-lg text-center">
+                            
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col-4" class="">ID</th>
+                                    <th scope="col-4" class="">TÊN KHÁCH HÀNG</th>
+                                    <th scope="col-4" class="">TÌNH TRẠNG</th>
+                                    <th scope="col-4" class="">CẬP NHẬT</th>
+                                </tr>
+                            </thead>
+                            <tbody>      
+                                <% @checkouts.each do | checkout | %>
+                                    <tr>
+                                        <td><%= checkout.id %></td>
+                                        <td><%= checkout.user.name %></td>        
+                                        <td>Đang xử lý</td>
+                                        <td><%= link_to "Xem", cart_checkout_path(checkout.cart_id, checkout.id), class:"btn-lg btn-warning" %></td>
+                                    </tr>
+                                <% end%>
+                            </tbody>
+                          
+                           
+                           
+                    </table>
+                        <%=raw pagy_nav(@pagy) if @pagy.pages > 1 %>
+                </div> 
+            </div>
+                    
+        </div>
     </div>
 </div>

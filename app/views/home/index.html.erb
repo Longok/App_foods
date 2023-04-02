@@ -1,62 +1,68 @@
 <% provide :title, "Trang chủ" %>
+<%= render partial: "layouts/header" %>
 
-<% @categories = Category.all %>
-<% @categories.each do |cate|%>
-    <div class="category">
-        <div class="category__img">
+<%= render partial: "layouts/slide" %>
+
+<div class="container">
+
+    <% @categories = Category.all %>
+    <% @categories.each do |cate|%>
+        <div class="category">
+            <div class="category__img">
+                <% cate.products.each do |product| %>
+                    <%= (image_tag product.image , class: 'cateImg' if product.image.attached?) %>
+                <% end %>
+            </div>
+            <span class="caterogy__name">
+                <%= cate.name %>
+            </span>    
+        </div>
+        <div class="products">
             <% cate.products.each do |product| %>
-                <%= (image_tag product.image , class: 'cateImg' if product.image.attached?) %>
+                <div class="item">
+            
+                    <%= link_to ( image_tag product.image if product.image.attached?), product %>
+                    
+                    <div class="box">
+                        <div class="add-cart">
+                        
+                            <%= form_with(url: cart_items_path(product)) do |f| %>
+                                <%= f.hidden_field :id, value: product.id %>
+                                <%= f.hidden_field :quantity, value: 1, min: 1 %>
+                                <%= f.submit "Thêm giỏ hàng", class:"btn btn--success" %>
+                            <% end %>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="content">
+                        <div class="info">
+                            <div class="review">
+                                
+                                <% if rand(0..5) > 0 %>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>(<%= rand(4..5) %>)</span>
+                                <% else %>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span>(0)</span>
+                                <% end %>
+                            </div>
+
+                            <div class="sold">
+                                <span>Đã bán: <%= rand(1...100)%>k</span>
+                            </div>
+                        </div>
+                        <div class="title">
+                            <%= link_to product.name, product_path(product), class:"text-decoration-none" %>
+                            <p class="price"><%= number_to_currency(product.price, precision: 0)%></p>
+                        </div>
+                    </div> 
+                </div>    
             <% end %>
         </div>
-        <span class="caterogy__name">
-            <%= cate.name %>
-        </span>    
-    </div>
-    <div class="products">
-        <% cate.products.each do |product| %>
-            <div class="item">
-          
-                <%= link_to ( image_tag product.image if product.image.attached?), product %>
-                
-                <div class="box">
-                    <div class="add-cart">
-                    
-                        <%= form_with(url: cart_items_path(product)) do |f| %>
-                            <%= f.hidden_field :id, value: product.id %>
-                            <%= f.hidden_field :quantity, value: 1, min: 1 %>
-                            <%= f.submit "Thêm giỏ hàng", class:"btn btn--success" %>
-                        <% end %>
-                    
-                    </div>
-                
-                </div>
-                
-                <div class="content">
-                    <div class="info">
-                        <div class="review">
-                            
-                            <% if rand(0..5) > 0 %>
-                                <i class="fa-solid fa-star"></i>
-                                <span>(<%= rand(4..5) %>)</span>
-                            <% else %>
-                                <i class="fa-regular fa-star"></i>
-                                <span>(0)</span>
-                            <% end %>
-                        </div>
-
-                        <div class="sold">
-                            <span>Đã bán: <%= rand(1...100)%>k</span>
-                        </div>
-                    </div>
-                    <div class="title">
-                        <%= link_to product.name, product_path(product), class:"text-decoration-none" %>
-                        <p class="price"><%= number_to_currency(product.price, precision: 0)%></p>
-                    </div>
-                </div> 
-            </div>    
-        <% end %>
-    </div>
-<% end %>
+    <% end %>
+</div>
 
 <%# Hiện hông tin khi thêm sản phẩm %>
 
@@ -70,3 +76,4 @@
 <%
 =end
 %>
+

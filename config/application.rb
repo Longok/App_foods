@@ -25,6 +25,6 @@ module AppFoods
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.session_store :cookie_store, key: '_app_foods', expire_after: 1.minutes    #set timeout session
+    config.session_store :cookie_store, key: '_app_foods', expire_after: 5.minutes    #set timeout session
   end
 end

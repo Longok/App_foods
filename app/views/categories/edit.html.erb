@@ -1,15 +1,29 @@
 <% provide :title, "Cập nhật danh mục" %>
+<%= render partial: "admin/header" %>
 
-<div class="row">
-    <div class="col-md-6 offset-md-3">
-        <h2 class="text-center mt-3">Cập nhật danh mục sản phẩm</h2>
-        <%= form_for @categories do |f| %>
+<div class="new-items">
 
-            <%= render "shared/error_messages", object: @categories%>
+    <div class="dashboard">
+    
+        <%=render partial: "admin/sidebar" %>
 
-            <%= f.text_field :name, placeholder:"Tên danh mục", class:"form-control mt-3" %>
+        <div class="aside">
+            <div class="row">
+                <div class="col-md-6 offset-md-3" style="margin-top: 10rem;">
+                    <h2 class="text-center mt-3">Cập nhật danh mục</h2>
+                    <%= form_for @categories do |f| %>
 
-            <%= f.submit "Cập nhật",  class:"btn btn-primary mt-3"%>
-        <% end %>
+                        <%= render "shared/error_messages", object: @categories%>
+
+                        <%= f.text_field :name, placeholder:"Tên danh mục", class:"form-control mt-3" %>
+
+                        <%= f.submit "Cập nhật",  class:"btn btn-primary mt-3"%>
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
+
     </div>
+
 </div>

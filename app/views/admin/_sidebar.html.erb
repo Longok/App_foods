@@ -1,0 +1,70 @@
+<div class="main">
+
+    <div class="sidebar" data-controller="dashboard">
+
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="" class="active"><span class="fas fa-bars"></span>
+                    <span>Dashboard</span></a>               
+                </li>
+                <li>
+                    <a href="#"class="dropdown-btn">
+                        <i class="fa-sharp fas fa-copyright"></i>
+                        <span>Danh mục</span>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                
+                    <ul class="dropdown-items">
+                        <li><%= link_to "Thêm danh mục", new_category_path %></li>
+                        <li><%= link_to "Danh sách danh mục", categories_path %></li>
+                    </ul>                 
+                </li>
+                <li>
+                    <a href="#"class="dropdown-btn">
+                        <i class="fab fa-product-hunt"></i>
+                        <span>Sản phẩm</span>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>                   
+                    <ul class="dropdown-items">
+                        <li><%= link_to "Thêm sản phẩm", new_product_path %></li>
+                        <li><%= link_to "Danh sách sản phẩm", products_path %></li>
+                    </ul>    
+                </li>
+                <li>
+                    <a href="#"class="dropdown-btn">
+                        <i class="fab fa-slideshare"></i>
+                        <span>Slides</span>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>                   
+                    <ul class="dropdown-items">
+                        <li><%= link_to "Thêm slide" , new_slide_path %></li>
+                        <li><%= link_to "Danh sách slides", slides_path %></li>
+                    </ul>    
+                </li>
+                <li>
+                    <a href="#"class="dropdown-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Người dùng</span>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>                   
+                    <ul class="dropdown-items">
+                        <li><%= link_to "Danh sách người dùng", users_path %></li>
+                    </ul>    
+                </li>
+                <li>
+                    <a href="#"class="dropdown-btn">
+                        <i class="far fa-calendar-check"></i>
+                        <span>Orders</span> 
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>                   
+                    <ul class="dropdown-items">
+                        <li><%= link_to "Danh sách đơn hàng", checkouts_path %></li>
+                    </ul>    
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</div>

@@ -4,6 +4,7 @@
    <head>
     <title><%= yield(:title)%> | App Foods</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-visit-control" content="reload"> 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +15,17 @@
 </head>
 <body>
     <%= render partial: "admin/header" %>
-    
+ 
+      <div class="dashboard">
+      
+        <%=render partial: "admin/sidebar" %>
 
+        <div class="aside">
+            <h2>Phan content</h2>
+        </div>
+      </div>
+
+    <%= render partial: "layouts/footer" %>
+    
 </body>
 </html>

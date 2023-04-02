@@ -1,0 +1,21 @@
+<% provide :title, "Thông báo" %>
+<%= render partial: "layouts/header" %>
+
+<section class="page_404">
+  <div class="container">
+    <div class="row"> 
+        <div class="col-sm-12 ">
+            <div class="col-md-6 offset-md-3 text-center">
+                <div class="four_zero_four_bg">
+                    <h1 class="text-center">Oopp !</h1>
+                </div>
+    
+                <div class="contant_box_404">
+                    <h2 class="h2">Xin chào, hiện tại chưa có thông báo!</h2>             
+                        <%= link_to "Quay lại", root_path, class:"link_404" %>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>

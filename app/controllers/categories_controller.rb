@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
         @categories = Category.new categories_params
         if @categories.save
             flash[:success] = "Tạo danh mục thành công"
-            redirect_to @categories
+            redirect_to categories_path
         else
             flash[:danger] = "Tạo danh mục thất bại"
             render :new, status: :unprocessable_entity
@@ -34,7 +34,7 @@ class CategoriesController < ApplicationController
         @categories = Category.find_by id: params[:id]
         if @categories.update categories_params
             flash[:success] = "Sửa danh mục thành công"
-            redirect_to @categories
+            render :index 
         else
             flash[:danger] = "Sửa danh mục thất bại"
             render :edit, status: :unprocessable_entity

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   root "home#index"
+
+  get '/notification', to: "home#notification"
   
   get '/sign-up', to: "users#new"
   post '/sign-up', to: "users#create"
@@ -19,6 +21,9 @@ Rails.application.routes.draw do
   post 'cart_items/:id/update', to: "cart_items#update_quantity", as:'cart_item_update'
   delete 'cart_items/:id', to: "cart_items#delete_item", as:'cart_item_delete'
   resources :cart_items
+
+  get 'checkouts', to: "checkouts#index"
+  get 'checkouts/success', to: "checkouts#success"
 
   resources :carts do 
     resources :checkouts

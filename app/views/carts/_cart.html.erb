@@ -1,18 +1,35 @@
 <% provide :title, "Giỏ hàng của bạn"%>
+<%= render partial: "layouts/header" %>
 
-<% if @cart.total > 0 %>
-    <h1 class="mb-5">Giỏ hàng của bạn:</h1>
-    <div class="cart-checkout">
-        <p class="h2">Tổng cộng: <%= number_to_currency(@cart.total, precision: 0) %>/ </p>
-        <% if logged_in? %>
-            <%= link_to "Thanh Toán", new_cart_checkout_path(@cart) %>
-        <% else %>
-            <%= link_to "Thanh Toán", login_path %>
-        <% end %>
-    </div>      
-<% end %>    
-<% if @cart.cart_items.count > 0 %>
-    <%= render "cart_items/cart_item" %>
-<% else %>
-    <p class="h2">Giỏ hàng trống, <%= link_to "Mua ngay", products_path, class:"text-decoration-none" %></p>
-<% end %>
+<%= render partial: "layouts/slide" %>
+
+<div class="container">
+
+    <% if @cart.total > 0 %>
+        <h1 class="mb-5">Giỏ hàng của bạn:</h1>
+        <div class="cart-checkout">
+            <p class="h2">Tổng cộng: <%= number_to_currency(@cart.total, precision: 0) %>/ </p>
+            <% if logged_in? %>
+                <%= link_to "Thanh Toán", new_cart_checkout_path(@cart) %>
+            <% else %>
+                <%= link_to "Thanh Toán", login_path %>
+            <% end %>
+        </div>      
+    <% end %> 
+
+    <% if @cart.cart_items.count > 0 %>
+        <%= render "cart_items/cart_item" %>
+    <% else %>
+
+        <div class="card__empty">
+
+            <div class="card__body">
+                <div class="img-empty">
+                    <%= image_tag "cart-empty.png" %>
+                    <h3><strong>Giỏ hàng trống</strong></h3>
+                    <%= link_to "Mua ngay", root_path, class:"fs-3 btn btn-primary cart-btn-transform m-3" %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>

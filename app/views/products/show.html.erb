@@ -1,4 +1,6 @@
 <% provide :title, @product.name %>
+<%= render partial: "layouts/header" %>
+<%= render partial: "layouts/slide" %>
 
     <div class="show">
         
@@ -16,14 +18,16 @@
 
             <div class="review">
                 <div class="star-icon">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <% if rand(0..5) > 0 %>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(<%= rand(4..5) %>)</span>
+                    <% else %>
+                        <i class="fa-regular fa-star"></i>
+                        <span>(0)</span>
+                    <% end %>
                 </div>
                 <div class="saled">
-                    <p>Đã bán <span>148 sản phẩm</span></p>
+                    <p>Đã bán: <span><%= rand(1...100)%>k sản phẩm</span></p>
                 </div>
             </div>      
 

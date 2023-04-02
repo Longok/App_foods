@@ -1,7 +1,9 @@
 <% provide :title, "Đăng nhập"%>
+<%= render partial: "layouts/header" %>
+<%= render partial: "layouts/slide" %>
 
 <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-6 offset-md-3 mb-5 px-5">
     <h1 class="text-center">Đăng nhập</h1>
         <%= form_for :session, url: login_path, local: true do |f| %>
 
@@ -9,7 +11,7 @@
 
         <%= f.password_field :password, class: "form-control mt-4", placeholder: "Mật khẩu" %>
 
-        <%= f.submit "Đăng nhập", class:"btn btn-primary mt-4 mb-3" %>
+        <%= f.submit "Đăng nhập", class:"btn-lg btn-primary mt-4 mb-3" %>
 
         <% end %>
 

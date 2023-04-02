@@ -1,4 +1,4 @@
-<% provide :title, "Trang sản phẩm" %>
+<% provide :title, "Trang Users" %>
 <%= render partial: "admin/header" %>
 
 <div class="new-items">
@@ -16,22 +16,18 @@
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col-4" class="">ID</th>
-                                <th scope="col-4" class="">HÌNH ẢNH</th>
-                                <th scope="col-4" class="">TÊN SẢN PHẨM</th>
+                                <th scope="col-4" class="">TÊN USERS</th>
                                 <th scope="col-4" class="">CẬP NHẬT</th>
                             </tr>
                         </thead>
                         <tbody>      
-                            <% @products.each do |product| %>
+                            <% @users.each do |user| %>
                                 <tr>
-                                    <td><%= product.id %></td>
+                                    <td><%= user.id %></td>
+                                    <td><%= user.name %></td>
                                     <td>
-                                        <%= link_to ( image_tag product.image, style:"width: 5rem; height: 5rem;" if product.image.attached? ), product %>
-                                    </td>
-                                    <td><%= link_to product.name, product_path(product) %></td>
-                                    <td>
-                                        <%= link_to "Sửa", edit_product_path(product), class:"btn-lg btn-warning" %> |
-                                        <%= link_to "Xóa", product_path(product), data: { turbo_method: :delete}, class:"btn-lg btn-danger" %>
+                                        <%= link_to "Sửa", edit_user_path(user), class:"btn-lg btn-warning" %> |
+                                        <%= link_to "Xóa", user_path(user), data: { turbo_method: :delete}, class:"btn-lg btn-danger" %>
                                     </td>
                                 </tr>
                             <% end%>

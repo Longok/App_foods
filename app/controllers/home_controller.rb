@@ -7,4 +7,8 @@ class HomeController < ApplicationController
             @user = User.find_by(id: session[:user_id])
         end
     end
+
+    def notification
+        
+    end
 end

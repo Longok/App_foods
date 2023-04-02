@@ -35,10 +35,12 @@
 
             <li class="header__items">
                 <div class="header__items-noti">
-                    <a href="">
+                    <%= link_to notification_path do %>
+
                         <i class="fa-regular fa-bell"></i>
                         <span>Thông báo</span>
-                    </a>
+
+                    <% end %>
                 
                 </div>
             </li>
@@ -74,7 +76,9 @@
                     <a href="" class="login">                  
                         <% if logged_in? && @cart %>
                             <i class="fa-regular fa-user active"></i>
-                            <span class="login__name"><%= current_user.name %></span>
+      
+                            <%= link_to (current_user.name ), user_path(current_user.id), class:"login__name" %>
+    
                             <%= link_to "|Thoát", logout_path,  data: { turbo_method: :delete} %>
                         <% else %>
                             <%= link_to login_path do %>

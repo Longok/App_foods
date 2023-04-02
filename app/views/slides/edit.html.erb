@@ -1,0 +1,33 @@
+<% provide :title, "Cập nhật slide" %>
+
+<%= render partial: "admin/header" %>
+
+<div class="new-items">
+
+    <div class="dashboard">
+    
+        <%=render partial: "admin/sidebar" %>
+
+        <div class="aside">
+
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h2 class="text-center mt-5 mb-3">Cập nhật sản phẩm</h2>
+                
+                    <%= form_for @slides do |f| %>
+                        <%= render "shared/error_messages", object: @slides %>
+
+                        <%= f.text_field :name, placeholder:"Tên slide", class:"form-control mt-5" %>
+                        <%= f.file_field :image, class:"form-control mt-4" %>
+                        <%= f.label :category_id, "Chọn danh mục", class:"mt-4 h3" %>
+
+                        <%= f.submit "Cập nhật slide",  class:"btn-lg btn-primary mt-4" %>
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

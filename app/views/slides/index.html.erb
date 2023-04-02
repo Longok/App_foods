@@ -1,4 +1,4 @@
-<% provide :title, "Trang sản phẩm" %>
+<% provide :title, "Trang Slides" %>
 <%= render partial: "admin/header" %>
 
 <div class="new-items">
@@ -17,21 +17,19 @@
                             <tr>
                                 <th scope="col-4" class="">ID</th>
                                 <th scope="col-4" class="">HÌNH ẢNH</th>
-                                <th scope="col-4" class="">TÊN SẢN PHẨM</th>
                                 <th scope="col-4" class="">CẬP NHẬT</th>
                             </tr>
                         </thead>
                         <tbody>      
-                            <% @products.each do |product| %>
+                            <% @slides.each do |slide| %>
                                 <tr>
-                                    <td><%= product.id %></td>
+                                    <td><%= slide.id %></td>
                                     <td>
-                                        <%= link_to ( image_tag product.image, style:"width: 5rem; height: 5rem;" if product.image.attached? ), product %>
+                                        <%= link_to ( image_tag slide.image, style:"width: 20rem; height: 5rem;" if slide.image.attached? ), slide %>
                                     </td>
-                                    <td><%= link_to product.name, product_path(product) %></td>
                                     <td>
-                                        <%= link_to "Sửa", edit_product_path(product), class:"btn-lg btn-warning" %> |
-                                        <%= link_to "Xóa", product_path(product), data: { turbo_method: :delete}, class:"btn-lg btn-danger" %>
+                                        <%= link_to "Sửa", edit_slide_path(slide), class:"btn-lg btn-warning" %> |
+                                        <%= link_to "Xóa", slide_path(slide), data: { turbo_method: :delete}, class:"btn-lg btn-danger" %>
                                     </td>
                                 </tr>
                             <% end%>

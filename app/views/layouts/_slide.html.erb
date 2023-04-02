@@ -1,15 +1,12 @@
-<section id="slide">
+
+<section id="slide" data-controller="slide">
     
-    <% @slides.each do |slide| %>
+    <% Slide.all.each do |slide| %>
         <div class="slide-items">
-            <%= image_tag(slide.image, class: 'itemImg active') if slide.image.attached? %>
+            <div class="items">
+                <%= image_tag(slide.image, class: 'itemImg') if slide.image.attached? %> 
+            </div>
         </div>
     <% end %>
-    <div class="buttons">
-        <button id="prev"><i class="fa-regular fa-circle-left"></i></button>
-        
-        <button id="next"><i class="fa-regular fa-circle-right"></i></button>
-
-    </div>
 
 </section>

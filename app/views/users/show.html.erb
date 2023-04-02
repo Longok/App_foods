@@ -1,0 +1,39 @@
+<% provide :title, "Trang Users" %>
+<%= render partial: "layouts/header" %>
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3" style="margin-top: 20rem;" >
+    <h1 class="text-center">Thông tin tài khoản</h1>
+        
+        <h1><%= @user.name %></h1>
+        <%= link_to "Sửa", edit_user_path, class:"btn-lg btn-primary" %>
+        <%= link_to "Chi tiết đơn hàng", cart_checkouts_path(@user) %>
+
+        <h2>Danh sách đơn hàng đã đặt</h2>
+       
+        <div class="products-table col-md-8 mx-auto" style="margin-top: 3rem; font-size: 2rem">
+
+            <table class="table table-borderless table-lg text-center">
+                    
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col-4" class="">ID</th>
+                            <th scope="col-4" class="">NGÀY ĐẶT</th>
+                        </tr>
+                    </thead>
+                    <tbody>   
+                         <% @user.checkouts.each do | check| %>
+                            <tr>
+                                <td><%= check.id %></td>                  
+                                <td><%= link_to check.created_at, cart_checkouts_path(@user) %></td>
+                                
+                            </tr>
+                        <% end%>
+                    </tbody>
+
+            </table>
+
+        </div> 
+    </div>
+</div>

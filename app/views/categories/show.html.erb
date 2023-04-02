@@ -1,64 +1,63 @@
 <% provide :title, @categories.name %>
 
-<p class="h2">Danh mục: <%= @categories.name %></p>
+<%= render partial: "layouts/header" %>
+<%= render partial: "layouts/slide" %>
 
-<% if logged_in? %>
-    <%= link_to "Sửa", edit_category_path, class:"btn btn-primary mt-2" %>
-    <%= link_to "Xóa", category_path, data: { turbo_method: :delete}, class:"btn btn-danger mt-2" %>
-<% end %>    
+<div class="container">
 
-    <div class="products">
-        <% @categories.products.each do |product| %>
-            <div class="item">
-            
-                <div class="image">
-                    <%= link_to ( image_tag product.image if product.image.attached?), product %>
-                </div>
+    <p class="h2">Danh mục: <%= @categories.name %></p>  
 
-                 <div class="box">
-                    <div class="add-cart">
-                    
-                        <%= form_with(url: cart_items_path(product)) do |f| %>
-                            <%= f.hidden_field :id, value: product.id %>
-                            <%= f.hidden_field :quantity, value: 1, min: 1 %>
-                            <%= f.submit "Thêm giỏ hàng", class:"btn" %>
-                        <% end %>
-                   
-                    </div>
+        <div class="products">
+            <% @categories.products.each do |product| %>
+                <div class="item">
                 
-                </div>
+                    <div class="image">
+                        <%= link_to ( image_tag product.image if product.image.attached?), product %>
+                    </div>
 
-                <div class="content">
-                    <div class="info">
-                        <div class="review">
-                            
-                            <% if rand(0..5) > 0 %>
-                                <i class="fa-solid fa-star"></i>
-                                <span>(<%= rand(4..5) %>)</span>
-                            <% else %>
-                                <i class="fa-regular fa-star"></i>
-                                <span>(0)</span>
+                    <div class="box">
+                        <div class="add-cart">
+                        
+                            <%= form_with(url: cart_items_path(product)) do |f| %>
+                                <%= f.hidden_field :id, value: product.id %>
+                                <%= f.hidden_field :quantity, value: 1, min: 1 %>
+                                <%= f.submit "Thêm giỏ hàng", class:"btn" %>
                             <% end %>
+                    
                         </div>
+                    
+                    </div>
 
-                        <div class="sold">
-                            <span>Đã bán: <%= rand(1...100)%>k</span>
+                    <div class="content">
+                        <div class="info">
+                            <div class="review">
+                                
+                                <% if rand(0..5) > 0 %>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>(<%= rand(4..5) %>)</span>
+                                <% else %>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span>(0)</span>
+                                <% end %>
+                            </div>
+
+                            <div class="sold">
+                                <span>Đã bán: <%= rand(1...100)%>k</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="title">
-                        <%= link_to product.name, product_path(product), class:"text-decoration-none" %>
-                        <p class="price"><%= number_to_currency(product.price, precision: 0)%></p>
-                    </div>
-                </div> 
-            </div>    
-        <% end%>
-    </div>
-  <%# Paginate %>
-    <% if @products.count >= 4 %>
-        <%= raw pagy_nav(@pagy) %>
-    <% end %>
-<% if logged_in? %>
-    <%= link_to "Thêm sản phẩm", new_product_path, class:"btn btn-primary mt-2" %>
-<% end %>    
+                        <div class="title">
+                            <%= link_to product.name, product_path(product), class:"text-decoration-none" %>
+                            <p class="price"><%= number_to_currency(product.price, precision: 0)%></p>
+                        </div>
+                    </div> 
+                </div>    
+            <% end%>
+        </div>
+    <%# Paginate %>
+        <% if @products.count >= 4 %>
+            <%= raw pagy_nav(@pagy) %>
+        <% end %>
+  
+</div>
 
 
