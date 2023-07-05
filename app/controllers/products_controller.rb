@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
     before_action :login_admin, only: [:new, :create, :update, :destroy]
 
     def index 
-        @pagy, @products = pagy(Product.all.order("category_id DESC"), items: 12)
+        @pagy, @products = pagy(Product.all.order("id DESC"), items: 15)
     end
 
     def show

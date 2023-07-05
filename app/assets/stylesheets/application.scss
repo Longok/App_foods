@@ -322,7 +322,21 @@ body {
             display: flex;
             flex-direction: column;
             border-radius: 2rem;
-
+            
+            .iteam-info {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 6rem;
+                font-size: 1.4rem;
+                z-index: 10;
+                line-height: 1;
+                border-radius: 15px 0 20px 0;
+                color: #fff;
+                padding: 9px 20px 10px 20px;
+                background-color: #f74b81;
+            }
+            
             a {
 
                 img {
@@ -784,15 +798,44 @@ body {
 
 
 .footer {
-    background: $backgroud;
-    border-top: .2rem dashed $primary;
-    padding: 0 8%;
-    
+    border-top: .1rem solid rgba(0, 0, 0, .2);
+
+    .footer-img {
+        margin-bottom: 1rem;
+        position: relative;
+        
+        img {
+            height: auto;
+            width: 100%;
+        }
+        .footer-title {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 0 10px;
+            color: #fff;
+            z-index: 111;
+
+            h2 {
+                font-size: 4rem;
+            }
+            a {
+                font-size: 1.8rem;
+                text-decoration: underline;
+                color: #fff;
+            }
+        }
+    }
+
     .box-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
         gap: 1.2rem;
         margin-top: 3rem;
+        padding: 0 8%;
 
         .box {
             
@@ -866,7 +909,7 @@ body {
         } 
     }
 }
-.credit {
+.create {
     text-align: center;
     padding: 1rem;
     font-size: 2rem;
@@ -971,7 +1014,33 @@ body {
                 margin-top: 2rem;
             }
         }
+    .footer {
+        .footer-img {
+
+            .footer-title {
+
+                h2 {
+                    font-size: 4rem;
+                }
+            }
+        }
+   }
+}
+
+
+@media ( max-width: 1024px ) {
     
+    .footer {
+        .footer-img {
+
+            .footer-title {
+
+                h2 {
+                    font-size: 2.6rem;
+                }
+            }
+        }
+   }
 }
 
 @media only screen and (max-width: 770px) { 
@@ -979,7 +1048,6 @@ body {
     .header {
  
         .header__top {
-
 
             .header__top-left {
 
@@ -1186,5 +1254,15 @@ body {
                 display: none;
             }
         }
-    
+    .footer {
+        .footer-img {
+
+            .footer-title {
+
+                h2 {
+                    font-size: 2.2rem;
+                }
+            }
+        }
+    }
 }   

@@ -1,12 +1,132 @@
 
-<section id="slide" data-controller="slide">
+<section class="slider" data-controller="slide">
     
-    <% Slide.all.each do |slide| %>
-        <div class="slide-items">
+    <div class="list">
+        <% Slide.all.each do |slide| %>
             <div class="items">
                 <%= image_tag(slide.image, class: 'itemImg') if slide.image.attached? %> 
             </div>
-        </div>
-    <% end %>
+        <% end %>
+    </div>
+    <div class="buttons">
+        <button id="prev"><</button>
+        <button id="next">></button>
+    </div>
+</section>
+
+<section class="slide-track" data-controller="slide">
+
+    <ul class="carousel">
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_1.webp"%>
+            </div>
+            <h5>Giảm Sâu Nhất</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_2.webp"%>
+            </div>
+            <h5>Bán Chạy Nhất</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_3.webp"%>
+            </div>
+            <h5>Sữa Nước Bổ Dưỡng</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_4.webp"%>
+            </div>
+            <h5>Chất Lượng Quốc Tế</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_5.webp"%>
+            </div>
+            <h5>Cho Bé Khỏe Mạnh</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_6.webp"%>
+            </div>
+            <h5>Tiêu Hóa Khỏe Mạnh</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_7.webp"%>
+            </div>
+            <h5>Da Khỏe Dáng Đẹp</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_8.webp"%>
+            </div>
+            <h5>Thanh Nhiệt Sảng Khoái</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_9.webp"%>
+            </div>
+            <h5>Thơm Ngon Đậm Đà</h5>
+        </li>
+        
+        <%# slide2 %>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_1.webp"%>
+            </div>
+            <h5>Giảm Sâu Nhất</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_2.webp"%>
+            </div>
+            <h5>Bán Chạy Nhất</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_3.webp"%>
+            </div>
+            <h5>Sữa Nước Bổ Dưỡng</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_4.webp"%>
+            </div>
+            <h5>Chất Lượng Quốc Tế</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_5.webp"%>
+            </div>
+            <h5>Cho Bé Khỏe Mạnh</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_6.webp"%>
+            </div>
+            <h5>Tiêu Hóa Khỏe Mạnh</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_7.webp"%>
+            </div>
+            <h5>Da Khỏe Dáng Đẹp</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_8.webp"%>
+            </div>
+            <h5>Thanh Nhiệt Sảng Khoái</h5>
+        </li>
+        <li class="items">
+            <div class="img">
+                <%= image_tag "icon_icon_9.webp"%>
+            </div>
+            <h5>Thơm Ngon Đậm Đà</h5>
+        </li>
+    </ul>
 
 </section>

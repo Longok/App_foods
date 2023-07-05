@@ -5,7 +5,6 @@
 
 <div class="container">
 
-    <% @categories = Category.all %>
     <% @categories.each do |cate|%>
         <div class="category">
             <div class="category__img">
@@ -20,7 +19,7 @@
         <div class="products">
             <% cate.products.each do |product| %>
                 <div class="item">
-            
+                <div class="iteam-info">Hot</div>
                     <%= link_to ( image_tag product.image if product.image.attached?), product %>
                     
                     <div class="box">
@@ -61,6 +60,7 @@
                 </div>    
             <% end %>
         </div>
+
     <% end %>
 </div>
 

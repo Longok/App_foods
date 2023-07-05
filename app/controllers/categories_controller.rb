@@ -22,8 +22,8 @@ class CategoriesController < ApplicationController
 
     def show
         @categories = Category.find params[:id]
-        @pagy, @products = pagy(@categories.products.all.order("category_id DESC"), items: 12)
-
+        @pagy, @products = pagy(Category.includes(:products).limit(4), items: 4)
+        # @pagy, @products2 = pagy(Category.includes(:products).limit(4).offset(4), items: 4)
     end
 
     def edit

@@ -53,11 +53,12 @@
                 </div>    
             <% end%>
         </div>
+
     <%# Paginate %>
-        <% if @products.count >= 4 %>
-            <%= raw pagy_nav(@pagy) %>
-        <% end %>
-  
+    
+        <%=raw pagy_nav(@pagy) if @pagy.pages > 1 %>
+        <%= @categories.products.count  %>
+
 </div>
 
 
