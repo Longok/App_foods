@@ -1,13 +1,13 @@
 
-<section class="slider" data-controller="slide">
+<section id="slide" data-controller="slide">
     
-    <div class="list">
-        <% Slide.all.each do |slide| %>
-            <div class="items">
-                <%= image_tag(slide.image, class: 'itemImg') if slide.image.attached? %> 
-            </div>
-        <% end %>
+    
+    <% Slide.all.each do |slide| %>
+    <div class="item">
+        <%= image_tag(slide.image, class: 'itemImg') if slide.image.attached? %> 
     </div>
+    <% end %>
+   
     <div class="buttons">
         <button id="prev"><</button>
         <button id="next">></button>
@@ -129,4 +129,4 @@
         </li>
     </ul>
 
-</section>
+</section> 
