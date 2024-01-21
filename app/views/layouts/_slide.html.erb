@@ -1,7 +1,6 @@
 
 <section id="slide" data-controller="slide">
-    
-    
+      
     <% Slide.all.each do |slide| %>
     <div class="item">
         <%= image_tag(slide.image, class: 'itemImg') if slide.image.attached? %> 

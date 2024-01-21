@@ -3,10 +3,11 @@ body {
 
     #slide {
         position: relative;
-        margin-top: .5rem;
+        margin: 3rem 0;
         display: flex;
         height: 600px;
         transition: 1.5s;
+        box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
 
             .item {
                 width: max-content;
